@@ -30,10 +30,12 @@ const config = {
     new HtmlWebpackPlugin({
       filename: 'main/index.html',
       template: path.join(__dirname, 'pages/main/index.html'),
+      chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
       filename: 'pets/index.html',
       template: path.join(__dirname, 'pages/pets/index.html'),
+      chunks: ['pets'],
     }),
     new MiniCssExtractPlugin({
       filename: '[name]/style.css',
@@ -45,17 +47,15 @@ const config = {
         main: {
           type: 'css/mini-extract',
           name: 'main',
-          chunks: (chunk) => {
-            return chunk.name === 'main';
-          },
+          test: (module) => module.constructor.name === 'CssModule',
+          chunks: (chunk) => chunk.name.startsWith('main'),
           enforce: true,
         },
         pets: {
           type: 'css/mini-extract',
           name: 'pets',
-          chunks: (chunk) => {
-            return chunk.name === 'pets';
-          },
+          test: (module) => module.constructor.name === 'CssModule',
+          chunks: (chunk) => chunk.name.startsWith('pets'),
           enforce: true,
         },
       },
