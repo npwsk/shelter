@@ -1,15 +1,16 @@
 @use "assets/scss/css-variables";
+@use "assets/scss/scss-variables" as *;
 @use "assets/scss/general";
 
 .title {
   font-weight: 400;
-  font-family: "Georgia", serif;
+  font-family: $font-title;
 }
 
 .link {
+  height: 27px;
   color: var(--color-dark-s);
   line-height: 1.6;
-  height: 27px;
 
   &:hover {
     color: var(--color-light-s);
@@ -20,28 +21,48 @@
     color: var(--color-light-s);
 
     &::after {
-      content: "";
       position: absolute;
+      right: 0;
       bottom: 0;
       left: 0;
-      right: 0;
       width: 100%;
       height: 3px;
       background-color: var(--color-primary);
+      content: "";
     }
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 45px;
+  color: var(--color-dark-3xl);
+  font-size: 17px;
+  font-family: $font-title;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  background-color: var(--color-primary);
+  border-radius: 100px;
+
+  &:hover {
+    background-color: var(--color-primary-light);
   }
 }
 
 .header {
   padding-top: 60px;
-  background: url("assets/images/noise-pattern.png"),
-    radial-gradient(100% 215.42% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%),
-    rgb(33, 31, 32);
+  padding-bottom: 60px;
+  background:
+    url("assets/images/noise-pattern.png"),
+    radial-gradient(100% 215.42% at 0% 0%, rgb(91 72 58) 0%, rgb(38 36 37) 100%),
+    rgb(33 31 32);
+  background-position-y: top;
+  background-size: auto, auto 908px;
 
   &__content {
-    height: 60px;
     display: flex;
     justify-content: space-between;
+    height: 60px;
   }
 }
 
@@ -49,26 +70,24 @@
   height: 60px;
 
   &__link {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+    height: 100%;
   }
 
   &__title {
+    color: var(--color-primary);
     font-size: 32px;
     line-height: 1.1;
     letter-spacing: 0.06em;
-    color: var(--color-primary);
   }
 
   &__subtitle {
-    font-size: 13px;
-    // line-height: 15px;
-    /* identical to box height */
-    letter-spacing: 0.1em;
     color: var(--color-light-xl);
+    font-size: 13px;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -78,7 +97,6 @@
 
   &__list {
     display: flex;
-    // height: 100%;
   }
 
   &__item {
@@ -88,5 +106,45 @@
     &:last-child {
       margin-right: 0;
     }
+  }
+}
+
+.hero {
+  background:
+    url("assets/images/noise-pattern.png"),
+    radial-gradient(100% 215.42% at 0% -180px, rgb(91 72 58) 0%, rgb(38 36 37) 100%),
+    rgb(33 31 32);
+
+  &__content {
+    display: grid;
+    grid-template: 121px repeat(4, auto) / repeat(2, auto);
+    grid-template-areas:
+      ". hero-image" "hero-title hero-image"
+      "hero-text hero-image" "hero-button hero-image" ". hero-image";
+    gap: 42px;
+  }
+
+  &__title {
+    grid-area: hero-title;
+    max-width: 310px;
+    color: var(--color-light-xl);
+    font-size: 44px;
+    line-height: 130%;
+  }
+
+  &__text {
+    grid-area: hero-text;
+    color: var(--color-dark-s);
+    font-size: 15px;
+    line-height: 160%;
+  }
+
+  &__button {
+    grid-area: hero-button;
+    margin-right: auto;
+  }
+
+  &__image {
+    grid-area: hero-image;
   }
 }

@@ -24,15 +24,20 @@ h5 {
   margin: 0;
 }
 
-ul {
-  list-style: none;
+p {
   margin: 0;
   padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .wrapper {
   max-width: 1280px;
   margin: 0 auto;
-  padding-left: 40px;
   padding-right: 40px;
+  padding-left: 40px;
 }

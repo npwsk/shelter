@@ -17,6 +17,10 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(html)$/,
+        use: ['html-loader'],
+      },
+      {
         test: /\.(s*)css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
