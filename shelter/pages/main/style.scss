@@ -1,3 +1,92 @@
-.h1 {
-  color: lightblue;
+@use "assets/scss/css-variables";
+@use "assets/scss/general";
+
+.title {
+  font-weight: 400;
+  font-family: "Georgia", serif;
+}
+
+.link {
+  color: var(--color-dark-s);
+  line-height: 1.6;
+  height: 27px;
+
+  &:hover {
+    color: var(--color-light-s);
+  }
+
+  &--active {
+    position: relative;
+    color: var(--color-light-s);
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-primary);
+    }
+  }
+}
+
+.header {
+  padding-top: 60px;
+  background: url("assets/images/noise-pattern.png"),
+    radial-gradient(100% 215.42% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%),
+    rgb(33, 31, 32);
+
+  &__content {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  height: 60px;
+
+  &__link {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__title {
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    // line-height: 15px;
+    /* identical to box height */
+    letter-spacing: 0.1em;
+    color: var(--color-light-xl);
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    // height: 100%;
+  }
+
+  &__item {
+    display: block;
+    margin-right: 35px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }

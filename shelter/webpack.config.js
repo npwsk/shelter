@@ -26,6 +26,9 @@ const config = {
       },
     ],
   },
+  resolve: {
+    modules: [__dirname, 'node_modules'],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'main/index.html',
