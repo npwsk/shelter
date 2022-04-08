@@ -2,12 +2,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode development",
-    "dev": "npx webpack serve"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged --relative"
-    }
+    "dev": "npx webpack serve",
+    "prepare": "cd .. && husky install shelter/.husky"
   },
   "devDependencies": {
     "css-loader": "^6.7.1",
@@ -30,14 +26,10 @@
     "webpack-dev-server": "^4.8.1"
   },
   "lint-staged": {
-    "*.scss": [
-      "stylelint --fix",
-      "prettier --write --config .prettierrc",
-      "git add"
+    "*.scss": "stylelint --fix",
+    "*.{html,scss}": [
+      "prettier --write --config .prettierrc"
     ],
-    "*.html": [
-      "prettier --write --config .prettierrc",
-      "git add"
-    ]
+    "*.{js,md}": "prettier --write"
   }
 }
