@@ -148,3 +148,43 @@
     grid-area: hero-image;
   }
 }
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.section-title {
+  max-width: 400px;
+  color: var(--color-dark-l);
+  font-weight: 400;
+  font-size: 35px;
+  font-family: $font-title;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+}
+
+.about {
+  &__content {
+    display: flex;
+    gap: 120px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  &__column {
+    display: flex;
+    flex-basis: 430px;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+  }
+
+  &__text {
+    line-height: 1.6;
+  }
+
+  &__image {
+    order: -1;
+  }
+}
