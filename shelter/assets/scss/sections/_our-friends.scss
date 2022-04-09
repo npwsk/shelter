@@ -1,0 +1,38 @@
+@use "assets/scss/components/pet-card";
+
+.our-friends {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  &__pets-slider {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+}
+
+.pets-slider {
+  display: flex;
+  gap: min(2vw, 53px);
+  justify-content: space-between;
+  align-items: center;
+
+  &__content {
+    display: flex;
+    gap: min(5vw, 90px);
+    justify-content: space-between;
+  }
+
+  &__button {
+    &--slide-left {
+      order: -1;
+    }
+  }
+}

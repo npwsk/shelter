@@ -1,0 +1,36 @@
+.hero {
+  background: var(--bg-dark-pattern);
+
+  &__content {
+    display: grid;
+    grid-template: 121px repeat(4, auto) / repeat(2, auto);
+    grid-template-areas:
+      ". hero-image" "hero-title hero-image"
+      "hero-text hero-image" "hero-button hero-image" ". hero-image";
+    gap: 42px;
+  }
+
+  &__title {
+    grid-area: hero-title;
+    max-width: 310px;
+    color: var(--color-light-xl);
+    font-size: 44px;
+    line-height: 130%;
+  }
+
+  &__text {
+    grid-area: hero-text;
+    color: var(--color-dark-s);
+    font-size: 15px;
+    line-height: 160%;
+  }
+
+  &__button {
+    grid-area: hero-button;
+    margin-right: auto;
+  }
+
+  &__image {
+    grid-area: hero-image;
+  }
+}

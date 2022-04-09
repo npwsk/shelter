@@ -1,0 +1,24 @@
+.logo {
+  height: 60px;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+  }
+
+  &__title {
+    color: var(--color-primary);
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+  }
+
+  &__subtitle {
+    color: var(--color-light-xl);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+}

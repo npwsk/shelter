@@ -1,0 +1,35 @@
+@use "assets/scss/scss-variables" as *;
+
+.donation {
+  &__content {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    max-width: 380px;
+  }
+
+  &__title {
+    max-width: 300px;
+  }
+
+  &__details {
+    font-family: $font-title;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+  }
+
+  &__legal-info {
+    color: var(--color-dark-m);
+    font-size: 12px;
+    font-style: italic;
+    line-height: 18px;
+  }
+}
