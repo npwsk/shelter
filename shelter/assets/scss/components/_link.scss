@@ -4,13 +4,25 @@
   line-height: 1.6;
   transition: color 0.2s ease-in;
 
+  .pets-page & {
+    color: var(--color-dark-l);
+  }
+
   &:hover {
     color: var(--color-light-s);
+
+    .pets-page & {
+      color: var(--color-dark-3xl);
+    }
   }
 
   &--active {
     position: relative;
     color: var(--color-light-s);
+
+    .pets-page & {
+      color: var(--color-dark-3xl);
+    }
 
     &::after {
       position: absolute;

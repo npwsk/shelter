@@ -14,11 +14,19 @@
     font-size: 32px;
     line-height: 1.1;
     letter-spacing: 0.06em;
+
+    .pets-page & {
+      color: var(--color-dark-l);
+    }
   }
 
   &__subtitle {
     color: var(--color-light-xl);
     font-size: 13px;
     letter-spacing: 0.1em;
+
+    .pets-page & {
+      color: var(--color-dark-3xl);
+    }
   }
 }
