@@ -79,10 +79,7 @@
 .header {
   padding-top: 60px;
   padding-bottom: 60px;
-  background:
-    url("assets/images/noise-pattern.png"),
-    radial-gradient(100% 215.42% at 0% 0%, rgb(91 72 58) 0%, rgb(38 36 37) 100%),
-    rgb(33 31 32);
+  background: var(--bg-dark-pattern);
   background-position-y: top;
   background-size: auto, auto 908px;
 
@@ -361,5 +358,41 @@
     font-size: 12px;
     font-style: italic;
     line-height: 18px;
+  }
+}
+
+.footer {
+  padding-top: 40px;
+  background: var(--bg-dark-pattern);
+
+  &__content {
+    display: flex;
+    gap: 160px;
+  }
+
+  &__title {
+    margin-top: 16px;
+    margin-bottom: 40px;
+    color: var(--color-light-xl);
+  }
+
+  &__contacts {
+    max-width: 302px;
+  }
+
+  &__contact {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 40px;
+    color: var(--color-primary);
+    font-size: 20px;
+    font-family: $font-title;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
