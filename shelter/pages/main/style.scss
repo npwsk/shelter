@@ -11,6 +11,7 @@
   height: 27px;
   color: var(--color-dark-s);
   line-height: 1.6;
+  transition: color 0.2s ease-in;
 
   &:hover {
     color: var(--color-light-s);
@@ -35,17 +36,34 @@
 
 .button {
   display: inline-block;
-  padding: 15px 45px;
+  padding: 13px 43px;
   color: var(--color-dark-3xl);
   font-size: 17px;
   font-family: $font-title;
   line-height: 130%;
   letter-spacing: 0.06em;
   background-color: var(--color-primary);
+  border: 2px solid var(--color-primary);
   border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in, border 0.2s ease-in;
+
+  &--secondary {
+    background-color: transparent;
+  }
 
   &:hover {
     background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+  }
+
+  &--round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    padding: 0;
   }
 }
 
@@ -186,5 +204,88 @@
 
   &__image {
     order: -1;
+  }
+}
+
+.our-friends {
+  background-color: var(--color-light-l);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  &__pets-slider {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+}
+
+.pets-slider {
+  display: flex;
+  gap: min(2vw, 53px);
+  justify-content: space-between;
+  align-items: center;
+
+  &__content {
+    display: flex;
+    gap: min(5vw, 90px);
+    justify-content: space-between;
+  }
+
+  &__button {
+    &--slide-left {
+      order: -1;
+    }
+  }
+}
+
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  overflow: hidden;
+  text-align: center;
+  background-color: var(--color-light-s);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in, background-color 0.2s ease-in;
+
+  &:hover {
+    background-color: var(--color-light-xl);
+    box-shadow: 0 2px 35px 14px rgb(13 13 13 / 4%);
+  }
+
+  &__button {
+    align-self: center;
+    margin-bottom: 30px;
+  }
+
+  &:hover &__button {
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+  }
+
+  &__image-container {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.06em;
   }
 }
