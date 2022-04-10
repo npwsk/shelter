@@ -11,27 +11,29 @@
 
   &__title {
     margin-top: 16px;
-    margin-bottom: 40px;
     color: var(--color-light-xl);
   }
 
   &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 39px;
     max-width: 302px;
+
+    /* a fix for pixel perfect */
+    &:nth-child(2) {
+      gap: 32px;
+    }
   }
 
   &__contact {
     display: flex;
     gap: 20px;
     align-items: center;
-    margin-bottom: 40px;
     color: var(--color-primary);
     font-size: 20px;
     font-family: $font-title;
     line-height: 1.15;
     letter-spacing: 0.06em;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 }
