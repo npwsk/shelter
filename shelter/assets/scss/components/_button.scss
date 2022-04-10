@@ -18,11 +18,6 @@
     background-color: transparent;
   }
 
-  &:hover {
-    background-color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
-  }
-
   &--round {
     display: flex;
     justify-content: center;
@@ -39,5 +34,21 @@
     background: 15px 10px no-repeat var(--color-primary) url("assets/icons/bank-card.svg");
     border: none;
     border-radius: 9px;
+  }
+
+  &--pagination {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  &:disabled {
+    color: var(--color-dark-s);
+    border-color: var(--color-dark-s);
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
   }
 }
