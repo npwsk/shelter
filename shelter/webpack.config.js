@@ -27,6 +27,11 @@ const config = {
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: 'asset',
+        parser: {
+          dataUrlCondition: (source, { filename, module }) => {
+            return !filename.includes('favicon') && source.length < 8000;
+          },
+        },
       },
     ],
   },
