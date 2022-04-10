@@ -12,6 +12,8 @@
   }
 
   .pets-page & {
+    position: sticky;
+    top: 0;
     padding-top: 30px;
     padding-bottom: 30px;
     background: var(--color-light-xl);
