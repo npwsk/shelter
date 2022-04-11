@@ -7,6 +7,11 @@
   &__content {
     display: flex;
     gap: 160px;
+    justify-content: space-between;
+
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 300px;
+    // column-gap: 160px;
   }
 
   &__title {
@@ -14,26 +19,37 @@
     color: var(--color-light-xl);
   }
 
+  &__contacts-box {
+    display: flex;
+    gap: 160px;
+    justify-content: space-between;
+  }
+
   &__contacts {
     display: flex;
     flex-direction: column;
-    gap: 39px;
+    gap: 40px;
     max-width: 302px;
 
     /* a fix for pixel perfect */
     &:nth-child(2) {
-      gap: 32px;
+      gap: 30px;
+      margin-right: 8px;
     }
   }
 
   &__contact {
     display: flex;
     gap: 20px;
-    align-items: center;
     color: var(--color-primary);
     font-size: 20px;
     font-family: $font-title;
     line-height: 1.15;
     letter-spacing: 0.06em;
+  }
+
+  &__contact-text {
+    margin-top: 6px;
+    white-space: nowrap;
   }
 }
