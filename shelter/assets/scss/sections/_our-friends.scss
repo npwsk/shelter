@@ -20,13 +20,13 @@
 
 .pets-slider {
   display: flex;
-  gap: min(2vw, 53px);
+  gap: 53px;
   justify-content: space-between;
   align-items: center;
 
   &__content {
     display: flex;
-    gap: min(5vw, 90px);
+    gap: 90px;
     justify-content: space-between;
   }
 
