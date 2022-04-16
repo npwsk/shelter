@@ -29,7 +29,7 @@ const config = {
         type: 'asset',
         parser: {
           dataUrlCondition: (source, { filename, module }) => {
-            return !filename.includes('favicon') && source.length < 8000;
+            return !filename.includes('favicon') && source.length < 5000;
           },
         },
       },

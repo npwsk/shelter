@@ -1,3 +1,5 @@
+@use "assets/scss/scss-variables" as *;
+
 *,
 *::before,
 *::after {
@@ -48,6 +50,11 @@ ul {
   margin: 0 auto;
   padding-right: 40px;
   padding-left: 40px;
+
+  @media (max-width: $breakpoint-desktop) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
 }
 
 .help {

@@ -1,9 +1,15 @@
+@use "assets/scss/scss-variables" as *;
+
 .header {
   padding-top: 60px;
   padding-bottom: 60px;
   background: var(--bg-dark-pattern);
   background-position-y: top;
   background-size: auto, auto 908px;
+
+  @media (max-width: $breakpoint-desktop) {
+    padding-top: 30px;
+  }
 
   &__content {
     display: flex;

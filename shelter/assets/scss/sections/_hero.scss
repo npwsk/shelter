@@ -1,17 +1,32 @@
+@use "assets/scss/scss-variables" as *;
+
 .hero {
   background: var(--bg-dark-pattern);
 
   &__content {
-    display: grid;
-    grid-template: 121px repeat(4, auto) / repeat(2, auto);
-    grid-template-areas:
-      ". hero-image" "hero-title hero-image"
-      "hero-text hero-image" "hero-button hero-image" ". hero-image";
+    display: flex;
     gap: 42px;
+
+    @media (max-width: $breakpoint-desktop) {
+      flex-direction: column;
+      gap: 100px;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    padding-top: 163px;
+
+    @media (max-width: $breakpoint-desktop) {
+      width: 65%;
+      margin: 0 auto;
+      padding-top: 0;
+    }
   }
 
   &__title {
-    grid-area: hero-title;
     max-width: 310px;
     color: var(--color-light-xl);
     font-size: 44px;
@@ -19,18 +34,25 @@
   }
 
   &__text {
-    grid-area: hero-text;
     color: var(--color-dark-s);
     font-size: 15px;
     line-height: 160%;
   }
 
   &__button {
-    grid-area: hero-button;
-    margin-right: auto;
+    align-self: flex-start;
+
+    @media (max-width: $breakpoint-desktop) {
+      align-self: center;
+    }
   }
 
   &__image {
-    grid-area: hero-image;
+    max-width: 100%;
+
+    @media (max-width: $breakpoint-desktop) {
+      align-self: flex-end;
+      width: 80.3%;
+    }
   }
 }

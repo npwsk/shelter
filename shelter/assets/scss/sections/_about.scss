@@ -1,14 +1,23 @@
+@use "assets/scss/scss-variables" as *;
+
 .about {
   &__content {
     display: flex;
     gap: 120px;
     justify-content: center;
     margin: 0 auto;
+
+    @media (max-width: $breakpoint-desktop) {
+      flex-direction: column;
+      gap: 80px;
+      align-items: center;
+      width: 60.7%;
+    }
   }
 
   &__column {
     display: flex;
-    flex-basis: 430px;
+    flex-basis: 35.8%;
     flex-direction: column;
     gap: 25px;
     justify-content: center;
@@ -20,5 +29,10 @@
 
   &__image {
     order: -1;
+    max-width: 100%;
+
+    @media (max-width: $breakpoint-desktop) {
+      order: initial;
+    }
   }
 }
