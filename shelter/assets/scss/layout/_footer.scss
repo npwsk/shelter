@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "assets/scss/abstracts/scss-variables" as *;
 
 .footer {
@@ -8,48 +9,41 @@
     display: flex;
     gap: 160px;
     justify-content: space-between;
-
-    // display: grid;
-    // grid-template-columns: 1fr 1fr 300px;
-    // column-gap: 160px;
-  }
-
-  &__title {
-    margin-top: 16px;
-    color: var(--color-light-xl);
-  }
-
-  &__contacts-box {
-    display: flex;
-    gap: 160px;
-    justify-content: space-between;
   }
 
   &__contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    max-width: 302px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 90px auto auto;
+    gap: 33px 136px;
+    align-content: flex-start;
+    align-items: center;
+    padding-top: 16px;
+  }
 
-    /* a fix for pixel perfect */
-    &:nth-child(2) {
-      gap: 30px;
-      margin-right: 8px;
-    }
+  &__title {
+    color: var(--color-light-xl);
   }
 
   &__contact {
     display: flex;
     gap: 20px;
+    align-items: center;
     color: var(--color-primary);
     font-size: 20px;
     font-family: $font-title;
     line-height: 1.15;
     letter-spacing: 0.06em;
+    transition: color 0.2s ease-in;
+
+    &:hover {
+      color: color.adjust($color: rgb(242 204 176), $lightness: 10%);
+    }
   }
 
-  &__contact-text {
-    margin-top: 6px;
-    white-space: nowrap;
+  &__contact-icon {
+    width: auto;
+    height: 32px;
   }
 }
