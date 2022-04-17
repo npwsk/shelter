@@ -1,0 +1,13 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
+.wrapper {
+  max-width: $content-max-width + 2 * $wrapper-pinline;
+  margin: 0 auto;
+  padding-right: $wrapper-pinline;
+  padding-left: $wrapper-pinline;
+
+  @media (max-width: $breakpoint-desktop) {
+    padding-right: $wrapper-pinline-tablet;
+    padding-left: $wrapper-pinline-tablet;
+  }
+}

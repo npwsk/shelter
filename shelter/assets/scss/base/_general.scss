@@ -1,0 +1,11 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-dark-xl);
+  font-size: $font-size-main;
+  font-family: $font-main;
+}

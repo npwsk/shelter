@@ -1,13 +1,23 @@
-@use "assets/scss/fonts";
-@use "assets/scss/css-variables";
-@use "assets/scss/general";
+// ******** Abstracts ********
+@use "assets/scss/abstracts/css-variables";
+
+// ******** Base ********
+@use "assets/scss/base/reset";
+@use "assets/scss/base/fonts";
+@use "assets/scss/base/general";
+
+// ******** Components ********
 @use "assets/scss/components/link";
 @use "assets/scss/components/button";
 @use "assets/scss/components/logo";
 @use "assets/scss/components/title";
-@use "assets/scss/components/header";
 @use "assets/scss/components/section";
-@use "assets/scss/components/footer";
+
+// ******** Layout ********
+@use "assets/scss/layout/wrapper";
+@use "assets/scss/layout/header";
+@use "assets/scss/layout/navigation";
+@use "assets/scss/layout/footer";
 @use "assets/scss/sections/hero";
 @use "assets/scss/sections/about";
 @use "assets/scss/sections/our-friends";

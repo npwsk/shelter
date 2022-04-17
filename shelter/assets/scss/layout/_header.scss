@@ -1,4 +1,4 @@
-@use "assets/scss/scss-variables" as *;
+@use "assets/scss/abstracts/scss-variables" as *;
 
 .header {
   padding-top: 60px;
@@ -23,23 +23,5 @@
     padding-top: 30px;
     padding-bottom: 30px;
     background: var(--color-light-xl);
-  }
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-
-  &__list {
-    display: flex;
-  }
-
-  &__item {
-    display: block;
-    margin-right: 35px;
-
-    &:last-child {
-      margin-right: 0;
-    }
   }
 }
