@@ -5,10 +5,22 @@
   padding-top: 40px;
   background: var(--bg-dark-pattern);
 
+  @media (max-width: $breakpoint-desktop) {
+    padding-top: 30px;
+  }
+
   &__content {
     display: flex;
     gap: 160px;
     justify-content: space-between;
+
+    @media (max-width: $breakpoint-desktop) {
+      flex-direction: column;
+      gap: 62px;
+      align-items: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
   }
 
   &__contacts {
@@ -20,6 +32,11 @@
     align-content: flex-start;
     align-items: center;
     padding-top: 16px;
+
+    @media (max-width: $breakpoint-desktop) {
+      padding-top: 0;
+      column-gap: 36px;
+    }
   }
 
   &__title {

@@ -6,6 +6,11 @@
     gap: 30px;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: $breakpoint-desktop) {
+      flex-direction: column-reverse;
+      gap: 60px;
+    }
   }
 
   &__column {
@@ -14,6 +19,10 @@
     gap: 20px;
     align-items: flex-start;
     max-width: 380px;
+
+    @media (max-width: $breakpoint-desktop) {
+      max-width: 53.7%;
+    }
   }
 
   &__title {

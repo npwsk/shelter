@@ -1,3 +1,5 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
 .help {
   &__title {
     max-width: 350px;
@@ -11,6 +13,10 @@
     flex-wrap: wrap;
     gap: 55px 120px;
     justify-content: center;
+
+    @media (max-width: $breakpoint-desktop) {
+      column-gap: 60px;
+    }
   }
 
   &__item {
@@ -18,6 +24,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: $breakpoint-desktop) {
+      flex-basis: 24%;
+    }
   }
 
   &__item-title {
