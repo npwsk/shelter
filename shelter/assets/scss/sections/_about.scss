@@ -27,6 +27,11 @@
 
   &__title {
     margin: 0 auto 25px;
+
+    @media (max-width: $breakpoint-desktop) {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   &__text {
