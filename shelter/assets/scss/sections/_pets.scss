@@ -9,6 +9,11 @@
     padding-bottom: 76px;
   }
 
+  @media (max-width: $breakpoint-tablet) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
   &__title {
     margin: 0 auto;
     text-align: center;
@@ -29,6 +34,17 @@
 
       *:nth-child(7),
       *:nth-child(8) {
+        display: none;
+      }
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: auto;
+      margin-top: 42px;
+
+      *:nth-child(4),
+      *:nth-child(5),
+      *:nth-child(6) {
         display: none;
       }
     }

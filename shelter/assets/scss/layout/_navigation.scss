@@ -2,6 +2,7 @@
 
 .nav {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   &__list {
@@ -40,5 +41,9 @@
     display: block;
     height: 2px;
     background-color: var(--color-primary);
+
+    .pets-page & {
+      background-color: var(--color-darkest);
+    }
   }
 }

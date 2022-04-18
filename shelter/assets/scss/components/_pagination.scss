@@ -1,5 +1,11 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
 .pagination {
   display: flex;
   gap: 20px;
   justify-content: center;
+
+  @media (max-width: $breakpoint-tablet) {
+    gap: 10px;
+  }
 }
