@@ -39,6 +39,13 @@
     background: 15px 10px no-repeat var(--color-primary) url("assets/icons/bank-card.svg");
     border: none;
     border-radius: 9px;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding-top: 13px;
+      padding-bottom: 13px;
+      font-size: 15px;
+      line-height: 17px;
+    }
   }
 
   &--pagination {

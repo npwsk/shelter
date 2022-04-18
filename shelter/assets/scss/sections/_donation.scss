@@ -11,6 +11,10 @@
       flex-direction: column-reverse;
       gap: 60px;
     }
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 42px;
+    }
   }
 
   &__column {
@@ -23,16 +27,31 @@
     @media (max-width: $breakpoint-desktop) {
       max-width: 53.7%;
     }
+
+    @media (max-width: $breakpoint-tablet) {
+      align-items: center;
+      max-width: 100%;
+    }
   }
 
   &__title {
     max-width: 300px;
+
+    @media (max-width: $breakpoint-tablet) {
+      max-width: 220px;
+      margin: 0 auto;
+    }
   }
 
   &__details {
     font-family: $font-title;
     line-height: 1.1;
     letter-spacing: 0.06em;
+
+    @media (max-width: $breakpoint-tablet) {
+      line-height: 24px;
+      letter-spacing: normal;
+    }
   }
 
   &__legal-info {
@@ -40,5 +59,18 @@
     font-size: 12px;
     font-style: italic;
     line-height: 18px;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding: 0 10px;
+      text-align: justify;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+
+    @media (max-width: $breakpoint-tablet) {
+      width: calc(100% - 40px);
+    }
   }
 }

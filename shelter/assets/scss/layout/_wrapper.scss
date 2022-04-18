@@ -10,4 +10,9 @@
     padding-right: $wrapper-pinline-tablet;
     padding-left: $wrapper-pinline-tablet;
   }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding-right: $wrapper-pinline-mobile;
+    padding-left: $wrapper-pinline-mobile;
+  }
 }

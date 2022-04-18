@@ -11,6 +11,10 @@
       flex-direction: column;
       gap: 100px;
     }
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 105px;
+    }
   }
 
   &__column {
@@ -24,6 +28,11 @@
       margin: 0 auto;
       padding-top: 0;
     }
+
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__title {
@@ -31,6 +40,13 @@
     color: var(--color-light-xl);
     font-size: 44px;
     line-height: 130%;
+
+    @media (max-width: $breakpoint-tablet) {
+      max-width: 200px;
+      margin: 0 auto;
+      font-size: 25px;
+      letter-spacing: 0.06em;
+    }
   }
 
   &__text {
@@ -53,6 +69,10 @@
     @media (max-width: $breakpoint-desktop) {
       align-self: flex-end;
       width: 80.3%;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      width: 86.7%;
     }
   }
 }

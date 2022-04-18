@@ -6,6 +6,11 @@
     margin: 0 auto 60px;
     margin-bottom: 60px;
     text-align: center;
+
+    @media (max-width: $breakpoint-tablet) {
+      max-width: 250px;
+      margin-bottom: 42px;
+    }
   }
 
   &__list {
@@ -16,6 +21,13 @@
 
     @media (max-width: $breakpoint-desktop) {
       column-gap: 60px;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 30px;
+      justify-content: space-between;
+      max-width: calc(100% - 10px);
+      margin: 0 auto;
     }
   }
 
@@ -28,6 +40,19 @@
     @media (max-width: $breakpoint-desktop) {
       flex-basis: 24%;
     }
+
+    @media (max-width: $breakpoint-tablet) {
+      flex-basis: calc((100% - 30px) / 2);
+    }
+  }
+
+  &__item-icon {
+    width: 60px;
+    height: auto;
+
+    @media (max-width: $breakpoint-tablet) {
+      width: 50px;
+    }
   }
 
   &__item-title {
@@ -35,5 +60,11 @@
     font-size: 20px;
     line-height: 115%;
     letter-spacing: 0.06em;
+
+    @media (max-width: $breakpoint-tablet) {
+      margin-top: 20px;
+      font-size: 15px;
+      line-height: 110%;
+    }
   }
 }

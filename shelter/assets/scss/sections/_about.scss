@@ -5,6 +5,7 @@
     display: flex;
     gap: 120px;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
 
     @media (max-width: $breakpoint-desktop) {
@@ -13,26 +14,46 @@
       align-items: center;
       width: 60.7%;
     }
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 42px;
+      width: 90%;
+    }
   }
 
   &__column {
-    display: flex;
     flex-basis: 35.8%;
-    flex-direction: column;
-    gap: 25px;
-    justify-content: center;
+  }
+
+  &__title {
+    margin: 0 auto 25px;
   }
 
   &__text {
+    margin-bottom: 25px;
     line-height: 1.6;
+
+    @media (max-width: $breakpoint-tablet) {
+      margin-bottom: 22px;
+      text-align: justify;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__image {
     order: -1;
     max-width: 100%;
+    height: auto;
 
     @media (max-width: $breakpoint-desktop) {
       order: initial;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      max-width: 96.3%;
     }
   }
 }

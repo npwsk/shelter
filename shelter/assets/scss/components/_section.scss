@@ -1,8 +1,15 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
 .section {
   padding-top: 80px;
   padding-bottom: 100px;
 
   &:nth-of-type(2n + 1) {
     background-color: var(--color-light-l);
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding-top: 42px;
+    padding-bottom: 42px;
   }
 }

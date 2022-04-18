@@ -13,4 +13,10 @@
   font-family: $font-title;
   line-height: 45px;
   letter-spacing: 0.06em;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 25px;
+    line-height: 32px;
+    text-align: center;
+  }
 }

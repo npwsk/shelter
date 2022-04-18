@@ -1,9 +1,17 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
 .nav {
   display: flex;
   align-items: center;
 
   &__list {
     display: flex;
+
+    @media (max-width: $breakpoint-tablet) {
+      position: absolute;
+      right: -100%;
+      flex-direction: column;
+    }
   }
 
   &__item {
@@ -13,5 +21,24 @@
     &:last-child {
       margin-right: 0;
     }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    margin-right: 43px;
+
+    @media (max-width: $breakpoint-tablet) {
+      display: flex;
+    }
+  }
+
+  &__burger-line {
+    display: block;
+    height: 2px;
+    background-color: var(--color-primary);
   }
 }

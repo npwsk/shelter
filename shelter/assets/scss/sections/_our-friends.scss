@@ -11,11 +11,19 @@
   &__title {
     margin-bottom: 60px;
     text-align: center;
+
+    @media (max-width: $breakpoint-tablet) {
+      margin-bottom: 42px;
+    }
   }
 
   &__pets-slider {
     width: 100%;
     margin-bottom: 60px;
+
+    @media (max-width: $breakpoint-tablet) {
+      margin-bottom: 42px;
+    }
   }
 }
 
@@ -27,6 +35,12 @@
 
   @media (max-width: $breakpoint-desktop) {
     gap: 1.7%;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 80px;
   }
 
   &__content {
@@ -42,6 +56,14 @@
         display: none;
       }
     }
+
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+
+      > *:nth-child(2) {
+        display: none;
+      }
+    }
   }
 
   &__button {
@@ -49,6 +71,10 @@
 
     &--slide-left {
       order: -1;
+
+      @media (max-width: $breakpoint-tablet) {
+        order: initial;
+      }
     }
   }
 }
