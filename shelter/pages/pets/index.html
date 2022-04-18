@@ -9,28 +9,46 @@
   </head>
 
   <body class="pets-page">
-    <header class="header">
+    <header class="header header--sticky">
       <div class="wrapper">
-        <nav class="header__nav nav">
+        <div class="header__content">
           <div class="logo">
-            <a class="logo__link" href="#">
-              <h1 class="logo__title title">Cozy House</h1>
-              <div class="logo__subtitle">Shelter for pets in Boston</div>
+            <a class="logo__link" href="../main/">
+              <h1 class="logo__title logo__title--dark title">Cozy House</h1>
+              <div class="logo__subtitle logo__subtitle--dark">Shelter for pets in Boston</div>
             </a>
           </div>
 
-          <ul class="nav__list">
-            <li class="nav__item"><a class="link" href="../main/">About the shelter</a></li>
-            <li class="nav__item"><a class="link link--active" href="#">Our pets</a></li>
-            <li class="nav__item"><a class="link" href="../main/#help">Help the shelter</a></li>
-            <li class="nav__item"><a class="link" href="../main/#contacts">Contacts</a></li>
-          </ul>
-          <div class="nav__burger">
-            <span class="nav__burger-line"></span>
-            <span class="nav__burger-line"></span>
-            <span class="nav__burger-line"></span>
+          <nav class="header__nav nav">
+            <div class="nav__logo logo">
+              <a class="logo__link" href="../main/">
+                <h1 class="logo__title title">Cozy House</h1>
+                <div class="logo__subtitle">Shelter for pets in Boston</div>
+              </a>
+            </div>
+
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a class="nav__link link link--dark" href="../main/">About the shelter</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link link link--active link--active-dark" href="#">Our pets</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link link link--dark" href="../main/#help">Help the shelter</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link link link--dark" href="../main/#contacts">Contacts</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__burger">
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
           </div>
-        </nav>
+        </div>
       </div>
     </header>
 

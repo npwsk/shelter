@@ -1,7 +1,5 @@
 :root {
   // ********** Color palette **********
-
-  --color-darkest: rgb(0 0 0);
   --color-dark-3xl: rgb(41 41 41);
   --color-dark-xl: rgb(76 76 76);
   --color-dark-l: rgb(84 84 84);
@@ -16,4 +14,6 @@
     url("assets/images/noise-pattern.png"),
     radial-gradient(100% 215.42% at 0% 0%, rgb(91 72 58) 0%, rgb(38 36 37) 100%),
     rgb(33 31 32);
+  --color-darkest: rgb(0 0 0);
+  --color-backdrop: rgb(41 41 41 / 60%);
 }

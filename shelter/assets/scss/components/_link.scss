@@ -1,26 +1,26 @@
 .link {
-  height: 27px;
   color: var(--color-dark-s);
   line-height: 24px;
   transition: color 0.2s ease-in;
 
-  .pets-page & {
-    color: var(--color-dark-l);
-  }
-
   &:hover {
     color: var(--color-light-s);
+  }
 
-    .pets-page & {
+  &--dark {
+    color: var(--color-dark-l);
+
+    &:hover {
       color: var(--color-dark-3xl);
     }
   }
 
   &--active {
     position: relative;
+    padding-bottom: 3px;
     color: var(--color-light-s);
 
-    .pets-page & {
+    &-dark {
       color: var(--color-dark-3xl);
     }
 
