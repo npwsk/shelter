@@ -30,7 +30,7 @@
 
     @media (max-width: $breakpoint-tablet) {
       align-items: center;
-      max-width: 100%;
+      max-width: 300px;
     }
   }
 
@@ -70,7 +70,7 @@
     max-width: 100%;
 
     @media (max-width: $breakpoint-tablet) {
-      width: calc(100% - 40px);
+      width: 260px;
     }
   }
 }

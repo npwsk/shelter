@@ -21,6 +21,10 @@
     width: 100%;
     margin-bottom: 60px;
 
+    @media (max-width: $breakpoint-desktop) {
+      max-width: 708px;
+    }
+
     @media (max-width: $breakpoint-tablet) {
       margin-bottom: 42px;
     }
