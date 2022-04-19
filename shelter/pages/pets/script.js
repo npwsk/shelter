@@ -34,3 +34,7 @@ const init = () => {
 };
 
 window.addEventListener('load', init);
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.remove('preload');
+});
