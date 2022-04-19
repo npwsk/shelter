@@ -6,6 +6,7 @@
     "prepare": "cd .. && husky install shelter/.husky"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.4",
     "css-loader": "^6.7.1",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
@@ -14,6 +15,7 @@
     "lint-staged": "^12.3.7",
     "mini-css-extract-plugin": "^2.6.0",
     "normalize.css": "^8.0.1",
+    "postcss-loader": "^6.2.1",
     "prettier": "^2.6.2",
     "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
