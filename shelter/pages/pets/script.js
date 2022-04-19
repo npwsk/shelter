@@ -31,10 +31,7 @@ const init = () => {
 
   mediaQuery.addEventListener('change', handleMediaQuery);
   handleMediaQuery(mediaQuery);
+  document.body.classList.remove('preload');
 };
 
 window.addEventListener('load', init);
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.remove('preload');
-});
