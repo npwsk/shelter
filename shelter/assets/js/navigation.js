@@ -1,4 +1,10 @@
-const toggleNav = (nav, burgerButton) => {
+const closeNav = (nav, overlay, burgerButton) => {
+  nav.classList.remove('active');
+  burgerButton.classList.remove('active');
+  overlay.classList.remove('visible');
+};
+
+const toggleNav = (nav, overlay, burgerButton) => {
   if (nav.classList.contains('active')) {
     // const scrollY = document.body.style.top;
     // document.body.style.position = '';
@@ -6,8 +12,7 @@ const toggleNav = (nav, burgerButton) => {
     // window.scrollTo(0, parseInt(scrollY || '0') * -1);
 
     // document.body.classList.remove('no-scroll');
-    nav.classList.remove('active');
-    burgerButton.classList.remove('active');
+    closeNav(nav, overlay, burgerButton);
   } else {
     // document.body.style.top = `-${window.scrollY}px`;
     // nav.style.height = `${document.documentElement.clientHeight}px`;
@@ -15,25 +20,19 @@ const toggleNav = (nav, burgerButton) => {
     // document.body.classList.add('no-scroll');
     nav.classList.add('active');
     burgerButton.classList.add('active');
+    overlay.classList.add('visible');
   }
 };
 
-const handleNav = (e, nav, burgerButton) => {
-  if (nav.classList.contains('active') && e.target.classList.contains('link')) {
-    nav.classList.remove('active');
-    burgerButton.classList.remove('active');
-    return;
-  }
-  if (nav.classList.contains('active') && e.target.classList.contains('nav__burger')) {
-    nav.classList.remove('active');
-    burgerButton.classList.remove('active');
-    return;
-  }
-  if (!nav.classList.contains('active') && e.target.classList.contains('nav__burger')) {
-    nav.classList.add('active');
-    burgerButton.classList.add('active');
+const handleNav = (e, nav, overlay, burgerButton) => {
+  if (e.target.closest('.link') || e.target.closest('.logo')) {
+    closeNav(nav, overlay, burgerButton);
     return;
   }
 };
 
-export { handleNav, toggleNav };
+const handleNavOverLay = (nav, overlay, burgerButton) => {
+  closeNav(nav, overlay, burgerButton);
+};
+
+export { handleNav, toggleNav, handleNavOverLay };

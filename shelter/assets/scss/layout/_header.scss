@@ -11,60 +11,6 @@
     padding-top: 30px;
   }
 
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-  }
-
-  &__logo {
-    @media (max-width: $breakpoint-tablet) {
-      position: absolute;
-      right: 126px;
-    }
-  }
-
-  &__nav {
-    @media (max-width: $breakpoint-tablet) {
-      display: none;
-    }
-  }
-
-  &__burger {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
-    margin-right: 43px;
-    cursor: pointer;
-
-    @media (max-width: $breakpoint-tablet) {
-      display: flex;
-      transition: transform 0.3s ease-in;
-
-      &.active {
-        transform: rotate(90deg);
-      }
-    }
-  }
-
-  &__burger-line {
-    display: block;
-    height: 2px;
-    background-color: var(--color-primary);
-    transition: background 0.3s ease-in;
-
-    .pets-page & {
-      background-color: var(--color-darkest);
-    }
-  }
-
-  .pets-page &__burger.active &__burger-line {
-    background-color: var(--color-primary);
-  }
-
   &--sticky {
     position: fixed;
     width: 100%;
@@ -75,5 +21,61 @@
     padding-top: 30px;
     padding-bottom: 30px;
     background: var(--color-light-xl);
+  }
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.header__logo {
+  @media (max-width: $breakpoint-tablet) {
+    position: absolute;
+    right: 126px;
+  }
+}
+
+.header__nav {
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.header__burger {
+  position: absolute;
+  right: 53px;
+  z-index: $z-index-burger;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+
+  @media (max-width: $breakpoint-tablet) {
+    display: flex;
+    transition: transform 0.3s ease-in;
+
+    &.active {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.header__burger-line {
+  display: block;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: background 0.3s ease-in;
+
+  .pets-page & {
+    background-color: var(--color-darkest);
+  }
+
+  .pets-page .header__burger.active & {
+    background-color: var(--color-primary);
   }
 }

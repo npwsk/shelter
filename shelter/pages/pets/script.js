@@ -1,13 +1,14 @@
 import 'normalize.css';
 import './style.scss';
-import { handleNav, toggleNav } from 'assets/js/navigation';
+import { handleNav, toggleNav, handleNavOverLay } from 'assets/js/navigation';
 
 const nav = document.querySelector('.header__nav');
+const navOverlay = document.querySelector('.nav-overlay');
 const burgerButton = document.querySelector('.header__burger');
 const navLinks = nav.querySelectorAll('.link');
 
-const handleBurgerClick = () => toggleNav(nav, burgerButton);
-const handleNavClick = (e) => handleNav(e, nav, burgerButton);
+const handleBurgerClick = () => toggleNav(nav, navOverlay, burgerButton);
+const handleNavClick = (e) => handleNav(e, nav, navOverlay, burgerButton);
 
 const handleMediaQuery = (e) => {
   console.log(e);
@@ -33,10 +34,15 @@ const handleMediaQuery = (e) => {
 };
 
 const init = () => {
-  const mediaQuery = window.matchMedia('(max-width: 767px)');
+  // const mediaQuery = window.matchMedia('(max-width: 767px)');
 
-  mediaQuery.addEventListener('change', handleMediaQuery);
-  handleMediaQuery(mediaQuery);
+  // mediaQuery.addEventListener('change', handleMediaQuery);
+  // handleMediaQuery(mediaQuery);
+
+  burgerButton.addEventListener('click', handleBurgerClick);
+  nav.addEventListener('click', handleNavClick);
+  navOverlay.addEventListener('click', () => handleNavOverLay(nav, navOverlay, burgerButton));
+
   document.body.classList.remove('stop-animation');
 };
 

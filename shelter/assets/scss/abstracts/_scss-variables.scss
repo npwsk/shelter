@@ -13,3 +13,8 @@ $content-max-width: 1200px;
 $wrapper-pinline: 40px;
 $wrapper-pinline-tablet: 30px;
 $wrapper-pinline-mobile: 10px;
+
+// ********** Layers **********
+$z-index-burger: 9999;
+$z-index-sidenav: 1001;
+$z-index-sidenav-overlay: 1000;
