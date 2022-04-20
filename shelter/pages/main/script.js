@@ -6,28 +6,9 @@ const nav = document.querySelector('.header__nav');
 const navOverlay = document.querySelector('.nav-overlay');
 const burgerButton = document.querySelector('.header__burger');
 
-const handleBurgerClick = () => toggleNav(nav, navOverlay, burgerButton);
-const handleNavClick = (e) => handleNav(e, nav, navOverlay, burgerButton);
-
-const handleMediaQuery = (e) => {
-  console.log(e);
-  if (e.matches) {
-    burgerButton.addEventListener('click', handleBurgerClick);
-    nav.addEventListener('click', handleNavClick);
-  } else {
-    burgerButton.removeEventListener('click', handleBurgerClick);
-    nav.removeEventListener('click', handleNavClick);
-  }
-};
-
 const init = () => {
-  // const mediaQuery = window.matchMedia('(max-width: 767px)');
-
-  // mediaQuery.addEventListener('change', handleMediaQuery);
-  // handleMediaQuery(mediaQuery);
-
-  burgerButton.addEventListener('click', handleBurgerClick);
-  nav.addEventListener('click', handleNavClick);
+  burgerButton.addEventListener('click', () => toggleNav(nav, navOverlay, burgerButton));
+  nav.addEventListener('click', (e) => handleNav(e, nav, navOverlay, burgerButton));
   navOverlay.addEventListener('click', () => handleNavOverLay(nav, navOverlay, burgerButton));
 
   document.body.classList.remove('stop-animation');
