@@ -8,7 +8,7 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
-  color: var(--color-dark-xl);
+  color: $color-dark-xl;
   font-size: $font-size-main;
   font-family: $font-main;
 }

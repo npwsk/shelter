@@ -3,7 +3,7 @@
 .header {
   padding-top: 60px;
   padding-bottom: 60px;
-  background: var(--bg-dark-pattern);
+  background: $bg-dark-pattern;
   background-position-y: top;
   background-size: auto, auto 908px;
 
@@ -20,7 +20,7 @@
     top: 0;
     padding-top: 30px;
     padding-bottom: 30px;
-    background: var(--color-light-xl);
+    background: $color-light-xl;
   }
 }
 
@@ -68,14 +68,14 @@
 .header__burger-line {
   display: block;
   height: 2px;
-  background-color: var(--color-primary);
+  background-color: $color-primary;
   transition: background 0.3s ease-in;
 
   .pets-page & {
-    background-color: var(--color-darkest);
+    background-color: $color-darkest;
   }
 
   .pets-page .header__burger.active & {
-    background-color: var(--color-primary);
+    background-color: $color-primary;
   }
 }

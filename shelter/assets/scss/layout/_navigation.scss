@@ -16,7 +16,7 @@
     padding-left: 10px;
     overflow: hidden;
     overflow-y: scroll;
-    background-color: var(--color-dark-3xl);
+    background-color: $color-dark-3xl;
     transform: translateX(100%);
     transition: transform 0.3s ease-out;
   }
@@ -64,18 +64,18 @@
 }
 
 .nav__link {
-  color: var(--color-dark-s);
+  color: $color-dark-s;
   line-height: 24px;
   transition: color 0.2s ease-in;
 
   &:hover {
-    color: var(--color-light-s);
+    color: $color-light-s;
   }
 
   &--active {
     position: relative;
     padding-bottom: 3px;
-    color: var(--color-light-s);
+    color: $color-light-s;
 
     &::after {
       position: absolute;
@@ -84,24 +84,24 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background-color: var(--color-primary);
+      background-color: $color-primary;
       content: "";
     }
   }
 
   .pets-page & {
     @media (min-width: ($breakpoint-tablet + 1)) {
-      color: var(--color-dark-l);
+      color: $color-dark-l;
 
       &:hover {
-        color: var(--color-dark-3xl);
+        color: $color-dark-3xl;
       }
     }
   }
 
   .pets-page &--active {
     @media (min-width: ($breakpoint-tablet + 1)) {
-      color: var(--color-dark-3xl);
+      color: $color-dark-3xl;
     }
   }
 
@@ -118,7 +118,7 @@
   z-index: $z-index-sidenav-overlay;
   width: 100%;
   height: 100%;
-  background-color: var(--color-backdrop);
+  background-color: $color-backdrop;
   opacity: 0;
   transition: opacity 0.1s ease-out;
   pointer-events: none;

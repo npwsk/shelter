@@ -1,3 +1,5 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
 .logo {
   height: 60px;
 
@@ -10,23 +12,23 @@
   }
 
   &__title {
-    color: var(--color-primary);
+    color: $color-primary;
     font-size: 32px;
     line-height: 1.1;
     letter-spacing: 0.06em;
 
     &--dark {
-      color: var(--color-dark-l);
+      color: $color-dark-l;
     }
   }
 
   &__subtitle {
-    color: var(--color-light-xl);
+    color: $color-light-xl;
     font-size: 13px;
     letter-spacing: 0.1em;
 
     &--dark {
-      color: var(--color-dark-3xl);
+      color: $color-dark-3xl;
     }
   }
 }

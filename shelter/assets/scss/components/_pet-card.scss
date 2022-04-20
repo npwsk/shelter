@@ -1,16 +1,18 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
 .pet-card {
   display: flex;
   flex-direction: column;
   width: 270px;
   overflow: hidden;
   text-align: center;
-  background-color: var(--color-light-s);
+  background-color: $color-light-s;
   border-radius: 9px;
   cursor: pointer;
   transition: box-shadow 0.2s ease-in, background-color 0.2s ease-in;
 
   &:hover {
-    background-color: var(--color-light-xl);
+    background-color: $color-light-xl;
     box-shadow: 0 2px 35px 14px rgb(13 13 13 / 4%);
   }
 
@@ -20,8 +22,8 @@
   }
 
   &:hover &__button {
-    background-color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
   }
 
   &__image-container {

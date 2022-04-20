@@ -1,5 +1,4 @@
 // ******** Abstracts ********
-@use "assets/scss/abstracts/css-variables";
 
 // ******** Base ********
 @use "assets/scss/base/reset";
@@ -7,7 +6,6 @@
 @use "assets/scss/base/general";
 
 // ******** Components ********
-@use "assets/scss/components/link";
 @use "assets/scss/components/button";
 @use "assets/scss/components/logo";
 @use "assets/scss/components/title";

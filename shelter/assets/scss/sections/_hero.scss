@@ -1,7 +1,7 @@
 @use "assets/scss/abstracts/scss-variables" as *;
 
 .hero {
-  background: var(--bg-dark-pattern);
+  background: $bg-dark-pattern;
 
   &__content {
     display: flex;
@@ -37,7 +37,7 @@
 
   &__title {
     max-width: 310px;
-    color: var(--color-light-xl);
+    color: $color-light-xl;
     font-size: 44px;
     line-height: 130%;
 
@@ -50,7 +50,7 @@
   }
 
   &__text {
-    color: var(--color-dark-s);
+    color: $color-dark-s;
     font-size: 15px;
     line-height: 160%;
   }
