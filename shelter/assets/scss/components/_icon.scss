@@ -1,0 +1,39 @@
+.icon {
+  display: block;
+
+  &--arrow-left {
+    width: 14px;
+    height: 6px;
+    background-image: url("assets/icons/arrow-left.svg");
+  }
+
+  &--arrow-right {
+    width: 14px;
+    height: 6px;
+    background-image: url("assets/icons/arrow-right.svg");
+  }
+
+  &--bank-card {
+    width: 30px;
+    height: 23px;
+    background-image: url("assets/icons/bank-card.svg");
+  }
+
+  &--email {
+    width: 40px;
+    height: 32px;
+    background-image: url("assets/icons/mail.svg");
+  }
+
+  &--phone {
+    width: 40px;
+    height: 32px;
+    background-image: url("assets/icons/phone.svg");
+  }
+
+  &--map-pin {
+    width: 22px;
+    height: 32px;
+    background-image: url("assets/icons/map-pin.svg");
+  }
+}

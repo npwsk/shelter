@@ -1,8 +1,13 @@
 @use "assets/scss/abstracts/scss-variables" as *;
 
 .button {
-  display: inline-block;
-  padding: 13px 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 52px;
+
+  // padding: 13px 43px;
+  padding: 0 43px;
   color: $color-dark-3xl;
   font-size: 17px;
   font-family: $font-title;
@@ -19,24 +24,27 @@
     border-color: $color-primary-light;
   }
 
-  &--secondary {
+  &--outlined {
     background-color: transparent;
   }
 
   &--round {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 52px;
-    height: 52px;
-    padding: 0;
-  }
 
-  &--pay {
-    padding: 10px 15px 10px 60px;
+    // height: 52px;
+    padding: 0;
     font-size: 20px;
     line-height: 1.15;
-    background: 15px 10px no-repeat $color-primary url("assets/icons/bank-card.svg");
+  }
+
+  &--secondary {
+    gap: 15px;
+    min-height: 43px;
+
+    // padding: 10px 15px;
+    padding: 0 15px;
+    font-size: 20px;
+    line-height: 1.15;
     border: none;
     border-radius: 9px;
 
@@ -46,11 +54,6 @@
       font-size: 15px;
       line-height: 17px;
     }
-  }
-
-  &--pagination {
-    font-size: 20px;
-    line-height: 1.15;
   }
 
   &--disabled,

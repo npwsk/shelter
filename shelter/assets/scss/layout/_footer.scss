@@ -8,93 +8,92 @@
   @media (max-width: $breakpoint-desktop) {
     padding-top: 30px;
   }
+}
 
-  &__content {
-    display: flex;
-    gap: 160px;
-    justify-content: space-between;
+.footer__content {
+  display: flex;
+  gap: 160px;
+  justify-content: space-between;
 
-    @media (max-width: $breakpoint-desktop) {
-      flex-direction: column;
-      gap: 62px;
-      align-items: center;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: $breakpoint-tablet) {
-      gap: 40px;
-      max-width: 300px;
-    }
-  }
-
-  &__contacts {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto auto;
-    gap: 33px 136px;
-    align-content: flex-start;
+  @media (max-width: $breakpoint-desktop) {
+    flex-direction: column;
+    gap: 62px;
     align-items: center;
-    padding-top: 16px;
-
-    @media (max-width: $breakpoint-desktop) {
-      padding-top: 0;
-      column-gap: 36px;
-    }
-
-    @media (max-width: $breakpoint-tablet) {
-      grid-auto-flow: row;
-      grid-template-columns: 1fr;
-      align-items: flex-start;
-      row-gap: 40px;
-    }
+    max-width: 640px;
+    margin: 0 auto;
   }
 
-  &__title {
-    color: $color-light-xl;
+  @media (max-width: $breakpoint-tablet) {
+    gap: 40px;
+    max-width: 300px;
+  }
+}
 
-    @media (max-width: $breakpoint-tablet) {
-      max-width: 270px;
-      margin: 0 auto;
-    }
+.footer__contacts {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 33px 136px;
+  align-content: flex-start;
+  align-items: center;
+  padding-top: 16px;
+
+  @media (max-width: $breakpoint-desktop) {
+    padding-top: 0;
+    column-gap: 36px;
   }
 
-  &__contact {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    color: $color-primary;
-    font-size: 20px;
-    font-family: $font-title;
-    line-height: 1.15;
-    letter-spacing: 0.06em;
-    transition: color 0.2s ease-in;
+  @media (max-width: $breakpoint-tablet) {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    row-gap: 40px;
+  }
+}
 
-    &:hover {
-      color: color.adjust($color: rgb(242 204 176), $lightness: 10%);
-    }
+.footer__title {
+  color: $color-light-xl;
 
-    @media (max-width: $breakpoint-tablet) {
-      margin: 0 auto;
+  @media (max-width: $breakpoint-tablet) {
+    max-width: 270px;
+    margin: 0 auto;
+  }
+}
 
-      &:last-of-type {
-        margin: 0;
-      }
-    }
+.footer__contact {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: $color-primary;
+  font-size: 20px;
+  font-family: $font-title;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  transition: color 0.2s ease-in;
+
+  &:hover {
+    color: color.adjust($color: rgb(242 204 176), $lightness: 10%);
   }
 
-  &__contact-icon {
-    width: auto;
-    height: 32px;
-  }
+  @media (max-width: $breakpoint-tablet) {
+    margin: 0 auto;
 
-  &__image {
-    max-width: 100%;
-    height: auto;
-
-    @media (max-width: $breakpoint-tablet) {
-      width: calc(100% - 40px);
+    &:last-of-type {
+      margin: 0;
     }
+  }
+}
+
+.footer__contact-icon {
+  flex-shrink: 0;
+}
+
+.footer__image {
+  max-width: 100%;
+  height: auto;
+
+  @media (max-width: $breakpoint-tablet) {
+    width: calc(100% - 40px);
   }
 }
