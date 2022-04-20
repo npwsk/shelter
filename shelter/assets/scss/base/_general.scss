@@ -17,6 +17,7 @@ body {
   position: fixed;
 }
 
-.preload * {
+.stop-animation * {
   transition: none !important;
+  animation: none !important;
 }
