@@ -60,6 +60,20 @@ const renderItem = (indexes, parent, id) => {
   return item;
 };
 
+const renderCarousel = (carouselContent, cardsCount) => {
+  let currentPets = getRandomIndexes(cardsCount, 7);
+  let nextPets = getRandomIndexes(cardsCount, 7, currentPets);
+  let prevPets = getRandomIndexes(cardsCount, 7, currentPets);
+
+  // let itemsIndexes = [prevPets, currentPets, nextPets];
+  // console.log(itemsIndexes);
+  carouselContent.innerHTML = '';
+
+  const prevItem = renderItem(prevPets, carouselContent, 'carousel-item-prev');
+  const currentItem = renderItem(currentPets, carouselContent, 'carousel-item-current');
+  const nextItem = renderItem(nextPets, carouselContent, 'carousel-item-next');
+};
+
 const initCarousel = () => {
   const carousel = document.querySelector('.carousel');
   const carouselContent = document.querySelector('.carousel__content');
@@ -68,16 +82,40 @@ const initCarousel = () => {
   const btnPrev = carousel.querySelector('[data-slide="prev"]');
   const btnNext = carousel.querySelector('[data-slide="next"]');
 
-  let currentPets = getRandomIndexes(3, 7);
-  let nextPets = getRandomIndexes(3, 7, currentPets);
-  let prevPets = getRandomIndexes(3, 7, currentPets);
+  const desktopQuery = window.matchMedia('(min-width: 1280px)');
+  const tabletQuery = window.matchMedia('(max-width: 1279px) and (min-width: 768px)');
+  const mobileQuery = window.matchMedia('(max-width: 767px)');
 
-  // let itemsIndexes = [prevPets, currentPets, nextPets];
-  // console.log(itemsIndexes);
+  let itemCardsCount = 3;
 
-  const prevItem = renderItem(prevPets, carouselContent, 'carousel-item-prev');
-  const currentItem = renderItem(currentPets, carouselContent, 'carousel-item-current');
-  const nextItem = renderItem(nextPets, carouselContent, 'carousel-item-next');
+  const handleDesktopQueryChange = (e) => {
+    if (e.matches) {
+      itemCardsCount = 3;
+      renderCarousel(carouselContent, itemCardsCount);
+    }
+  };
+
+  const handleTabletQueryChange = (e) => {
+    if (e.matches) {
+      itemCardsCount = 2;
+      renderCarousel(carouselContent, itemCardsCount);
+    }
+  };
+
+  const handleMobileQueryChange = (e) => {
+    if (e.matches) {
+      itemCardsCount = 1;
+      renderCarousel(carouselContent, itemCardsCount);
+    }
+  };
+
+  desktopQuery.addEventListener('change', handleDesktopQueryChange);
+  tabletQuery.addEventListener('change', handleTabletQueryChange);
+  mobileQuery.addEventListener('change', handleMobileQueryChange);
+
+  handleDesktopQueryChange(desktopQuery);
+  handleTabletQueryChange(tabletQuery);
+  handleMobileQueryChange(mobileQuery);
 
   const moveLeft = () => {
     carouselContent.classList.add('transition-left');
@@ -95,6 +133,10 @@ const initCarousel = () => {
   btnNext.addEventListener('click', moveRight);
 
   carousel.addEventListener('animationend', (e) => {
+    const prevItem = document.querySelector('#carousel-item-prev');
+    const currentItem = document.querySelector('#carousel-item-current');
+    const nextItem = document.querySelector('#carousel-item-next');
+
     let changedItem;
 
     if (e.animationName === 'move-left') {
@@ -113,7 +155,7 @@ const initCarousel = () => {
     currentItem.innerHTML = changedItem.innerHTML;
     changedItem.innerHTML = '';
 
-    const newIndexes = getRandomIndexes(3, 7);
+    const newIndexes = getRandomIndexes(itemCardsCount, 7);
 
     // itemsIndexes.forEach((itemIndexes, i) => {
     //   if (itemIndexes === '-') {

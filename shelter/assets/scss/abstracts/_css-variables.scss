@@ -1,19 +1,20 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
 :root {
-  // ********** Color palette **********
-  --color-dark-3xl: rgb(41 41 41);
-  --color-dark-xl: rgb(76 76 76);
-  --color-dark-l: rgb(84 84 84);
-  --color-dark-m: rgb(178 178 178);
-  --color-dark-s: rgb(205 205 205);
-  --color-light-l: rgb(246 246 246);
-  --color-light-s: rgb(250 250 250);
-  --color-light-xl: rgb(255 255 255);
-  --color-primary: rgb(242 204 176);
-  --color-primary-light: rgb(253 220 196);
-  --bg-dark-pattern:
-    url("assets/images/noise-pattern.png"),
-    radial-gradient(100% 215.42% at 0% 0%, rgb(91 72 58) 0%, rgb(38 36 37) 100%),
-    rgb(33 31 32);
-  --color-darkest: rgb(0 0 0);
-  --color-backdrop: rgb(41 41 41 / 60%);
+  // ********** Sizes **********
+  --carousel-content-width: #{$carousel-content-width};
+  --carousel-content-gap: #{$carousel-content-gap};
+  --carousel-column-gap: #{$carousel-column-gap};
+
+  @media (max-width: $breakpoint-desktop) {
+    --carousel-content-width: #{$carousel-content-width-tablet};
+    --carousel-content-gap: #{$carousel-content-gap-tablet};
+    --carousel-column-gap: #{$carousel-column-gap-tablet};
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    --carousel-content-width: #{$carousel-content-width-mobile};
+    --carousel-content-gap: #{$carousel-content-gap-mobile};
+    --carousel-column-gap: #{$carousel-column-gap-mobile};
+  }
 }

@@ -33,10 +33,14 @@ $card-height: 435px;
 $button-round-size: 53px;
 $carousel-row-gap: 20px;
 $carousel-column-gap: 53px;
+$carousel-column-gap-tablet: 12px;
+$carousel-column-gap-mobile: 80px;
 $carousel-content-width: 990px;
-$carousel-content-width-tablet: 990px;
-$carousel-content-width-mobile: 990px;
+$carousel-content-width-tablet: 580px;
+$carousel-content-width-mobile: 270px;
 $carousel-content-gap: 90px;
+$carousel-content-gap-tablet: 40px;
+$carousel-content-gap-mobile: 40px;
 
 // ********** Layers **********
 $z-index-burger: 9999;
