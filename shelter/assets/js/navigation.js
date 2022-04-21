@@ -17,7 +17,6 @@ const toggleNav = (nav, overlay, burgerButton) => {
 };
 
 const handleNav = (e, nav, overlay, burgerButton) => {
-  console.log(e.target);
   if (e.target.closest('.nav__link') || e.target.closest('.logo')) {
     closeNav(nav, overlay, burgerButton);
     return;
