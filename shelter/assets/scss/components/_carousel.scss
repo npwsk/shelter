@@ -1,0 +1,97 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+@use "assets/scss/components/pet-card";
+
+.carousel {
+  display: flex;
+  gap: $carousel-column-gap;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: $breakpoint-desktop) {
+    gap: 1.7%;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 80px;
+  }
+}
+
+.carousel__inner {
+  width: $carousel-content-width;
+  overflow: hidden;
+}
+
+.carousel__content {
+  position: relative;
+  left: -$carousel-content-width - $carousel-content-gap;
+  display: flex;
+  gap: $carousel-content-gap;
+  height: $card-height;
+}
+
+.carousel__item {
+  display: flex;
+  gap: $carousel-content-gap;
+  justify-content: center;
+  transition: all 1s ease-out;
+
+  @media (max-width: $breakpoint-desktop) {
+    gap: 6.9%;
+
+    > *:nth-child(3) {
+      display: none;
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    width: 100%;
+
+    > *:nth-child(2) {
+      display: none;
+    }
+  }
+}
+
+.carousel__button {
+  flex-basis: 52px;
+
+  &--slide-left {
+    order: -1;
+
+    @media (max-width: $breakpoint-tablet) {
+      order: initial;
+    }
+  }
+}
+
+@keyframes move-left {
+  from {
+    left: -($carousel-content-width + $carousel-content-gap);
+  }
+
+  to {
+    left: -2 * ($carousel-content-width + $carousel-content-gap);
+  }
+}
+
+.transition-left {
+  animation-name: move-left;
+  animation-duration: 3s;
+}
+
+@keyframes move-right {
+  from {
+    left: -($carousel-content-width + $carousel-content-gap);
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.transition-right {
+  animation-name: move-right;
+  animation-duration: 3s;
+}

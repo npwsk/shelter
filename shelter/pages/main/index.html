@@ -99,54 +99,64 @@
             <h3 class="our-friends__title section-title">
               Our friends who<br />are looking for a house
             </h3>
-            <div class="our-friends__pets-slider pets-slider">
-              <div class="pets-slider__content">
-                <div class="pet-card">
-                  <div class="pet-card__image-container">
-                    <img
-                      src="../../assets/images/pets/katrine.png"
-                      alt=""
-                      class="pet-card__image"
-                      width="270"
-                      height="270"
-                    />
+            <div class="our-friends__carousel carousel">
+              <div class="carousel__inner">
+                <div class="carousel__content">
+                  <div class="carousel__item" id="carousel-item-prev"></div>
+                  <div class="carousel__item" id="carousel-item-current">
+                    <div class="pet-card">
+                      <div class="pet-card__image-container">
+                        <img
+                          src="../../assets/images/pets/katrine.png"
+                          alt=""
+                          class="pet-card__image"
+                          width="270"
+                          height="270"
+                        />
+                      </div>
+                      <h4 class="pet-card__title title">Katrine</h4>
+                      <button class="pet-card__button button button--outlined">Learn more</button>
+                    </div>
+                    <div class="pet-card">
+                      <div class="pet-card__image-container">
+                        <img
+                          src="../../assets/images/pets/jennifer.png"
+                          alt=""
+                          class="pet-card__image"
+                          width="270"
+                          height="270"
+                        />
+                      </div>
+                      <h4 class="pet-card__title title">Jennifer</h4>
+                      <button class="pet-card__button button button--outlined">Learn more</button>
+                    </div>
+                    <div class="pet-card">
+                      <div class="pet-card__image-container">
+                        <img
+                          src="../../assets/images/pets/woody.png"
+                          alt=""
+                          class="pet-card__image"
+                          width="270"
+                          height="270"
+                        />
+                      </div>
+                      <h4 class="pet-card__title title">Woody</h4>
+                      <button class="pet-card__button button button--outlined">Learn more</button>
+                    </div>
                   </div>
-                  <h4 class="pet-card__title title">Katrine</h4>
-                  <button class="pet-card__button button button--outlined">Learn more</button>
-                </div>
-                <div class="pet-card">
-                  <div class="pet-card__image-container">
-                    <img
-                      src="../../assets/images/pets/jennifer.png"
-                      alt=""
-                      class="pet-card__image"
-                      width="270"
-                      height="270"
-                    />
-                  </div>
-                  <h4 class="pet-card__title title">Jennifer</h4>
-                  <button class="pet-card__button button button--outlined">Learn more</button>
-                </div>
-                <div class="pet-card">
-                  <div class="pet-card__image-container">
-                    <img
-                      src="../../assets/images/pets/woody.png"
-                      alt=""
-                      class="pet-card__image"
-                      width="270"
-                      height="270"
-                    />
-                  </div>
-                  <h4 class="pet-card__title title">Woody</h4>
-                  <button class="pet-card__button button button--outlined">Learn more</button>
+                  <div class="carousel__item" id="carousel-item-next"></div>
                 </div>
               </div>
               <button
-                class="pets-slider__button pets-slider__button--slide-left button button--outlined button--round"
+                class="carousel__button carousel__button--slide-left button button--outlined button--round"
+                data-slide="prev"
               >
                 <span class="icon icon--arrow-left"></span>
               </button>
-              <button class="pets-slider__button button button--outlined button--round">
+              <button
+                class="carousel__button button button--outlined button--round"
+                data-slide="next"
+              >
                 <span class="icon icon--arrow-right"></span>
               </button>
             </div>

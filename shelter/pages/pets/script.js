@@ -1,6 +1,7 @@
 import 'normalize.css';
 import './style.scss';
-import { initNav, stopAnimationOnLoad, stopAnimationOnResize } from 'assets/js';
+import { stopAnimationOnLoad, stopAnimationOnResize } from 'assets/js/stopAnimation';
+import { initNav } from 'assets/js/navigation';
 
 const init = () => {
   stopAnimationOnLoad();
