@@ -22,11 +22,26 @@ const config = {
       },
       {
         test: /\.(s*)css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.css$/,
-        use: ['postcss-loader'],
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+        sideEffects: true,
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -84,6 +99,7 @@ const config = {
     compress: true,
     port: 9000,
   },
+  devtool: isProduction ? false : 'source-map',
 };
 
 module.exports = config;

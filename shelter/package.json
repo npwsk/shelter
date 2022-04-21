@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "rm -r dist/* && webpack",
+    "prod-build": "export NODE_ENV=production && rm -r dist/* && webpack",
     "dev": "npx webpack serve",
     "prepare": "cd .. && husky install shelter/.husky"
   },
@@ -33,6 +34,6 @@
     "*.{html,scss}": [
       "prettier --write --config .prettierrc"
     ],
-    "*.{js,md}": "prettier --write"
+    "*.{js,md}": "prettier --write --config .prettierrc"
   }
 }
