@@ -101,18 +101,18 @@ const initCarousel = () => {
 
   const moveLeft = () => {
     carouselContent.classList.add('transition-left');
-    btnPrev.removeEventListener('click', moveLeft);
-    btnNext.removeEventListener('click', moveRight);
+    btnNext.removeEventListener('click', moveLeft);
+    btnPrev.removeEventListener('click', moveRight);
   };
 
   const moveRight = () => {
     carouselContent.classList.add('transition-right');
-    btnPrev.removeEventListener('click', moveLeft);
-    btnNext.removeEventListener('click', moveRight);
+    btnNext.removeEventListener('click', moveLeft);
+    btnPrev.removeEventListener('click', moveRight);
   };
 
-  btnPrev.addEventListener('click', moveLeft);
-  btnNext.addEventListener('click', moveRight);
+  btnNext.addEventListener('click', moveLeft);
+  btnPrev.addEventListener('click', moveRight);
 
   carousel.addEventListener('animationend', (e) => {
     const prevItem = document.querySelector('#carousel-item-prev');
@@ -131,8 +131,8 @@ const initCarousel = () => {
     renderCards(prevItem, nextIds);
     renderCards(nextItem, nextIds);
 
-    btnNext.addEventListener('click', moveRight);
-    btnPrev.addEventListener('click', moveLeft);
+    btnNext.addEventListener('click', moveLeft);
+    btnPrev.addEventListener('click', moveRight);
   });
 };
 

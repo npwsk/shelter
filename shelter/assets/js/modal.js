@@ -24,19 +24,36 @@ const insertPetInfo = (modal, petId) => {
   parasitesElem.textContent = pet.parasites.join(', ');
 };
 
+const lockBodyScroll = () => {
+  const widthBefore = document.documentElement.clientWidth;
+  document.documentElement.classList.add('no-scroll');
+  const widthAfter = document.documentElement.clientWidth;
+  const scrollWidth = widthAfter - widthBefore;
+  if (scrollWidth) {
+    document.body.style.paddingRight = `${scrollWidth}px`;
+  }
+};
+
+const unlockBodyScroll = () => {
+  document.body.style.paddingRight = 0;
+  document.documentElement.classList.remove('no-scroll');
+};
+
 const handleCardClick = function () {
   const modalElem = document.querySelector('.modal');
   const petId = this.dataset.petId;
 
   insertPetInfo(modalElem, petId);
 
-  document.documentElement.classList.add('no-scroll');
+  // document.documentElement.classList.add('no-scroll');
+  lockBodyScroll();
   modalElem.classList.add('visible');
 };
 
 const closeModal = (e, modal) => {
   if (!e.target.closest('.modal__content') || e.target.closest('.modal__close')) {
-    document.documentElement.classList.remove('no-scroll');
+    unlockBodyScroll();
+    // document.documentElement.classList.remove('no-scroll');
     modal.classList.remove('visible');
   }
 };
