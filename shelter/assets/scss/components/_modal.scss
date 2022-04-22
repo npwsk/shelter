@@ -28,7 +28,7 @@
   @extend %rounded-borders;
 }
 
-.modal__button {
+.modal__close {
   position: absolute;
   top: -$button-round-size;
   right: -$button-round-size + 10px;

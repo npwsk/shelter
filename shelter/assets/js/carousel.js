@@ -1,4 +1,5 @@
 import pets from 'assets/pets';
+import { createCard } from './petCard';
 
 const PETS_COUNT = pets.length;
 const CARDS_PER_ITEM_DESKTOP = 3;
@@ -16,32 +17,6 @@ const getRandomIds = (count, max, prev = []) => {
   }
 
   return ids;
-};
-
-const createCard = ({ img, name }) => {
-  const card = document.createElement('div');
-  card.classList.add('pet-card');
-
-  const imageContainer = document.createElement('div');
-  imageContainer.classList.add('pet-card__image-container');
-
-  const imageElem = new Image(270, 270);
-  imageElem.alt = '';
-  imageElem.src = img;
-  imageElem.classList.add('pet-card__image');
-
-  const title = document.createElement('h4');
-  title.classList.add('pet-card__title', 'title');
-  title.textContent = name;
-
-  const btn = document.createElement('button');
-  btn.classList.add('pet-card__button', 'button', 'button--outlined');
-  btn.textContent = 'Learn more';
-
-  imageContainer.appendChild(imageElem);
-  card.append(imageContainer, title, btn);
-
-  return card;
 };
 
 const renderCards = (item, ids) => {
@@ -145,8 +120,9 @@ const initCarousel = () => {
     const nextItem = document.querySelector('#carousel-item-next');
 
     carouselContent.classList.remove('transition-left', 'transition-right');
-    currentItem.innerHTML = prevItem.innerHTML;
-    prevItem.innerHTML = '';
+
+    currentItem.innerHTML = '';
+    currentItem.append(...prevItem.children);
     nextItem.innerHTML = '';
 
     currentIds = nextIds;

@@ -9,8 +9,8 @@ import woody from 'assets/images/pets/woody.png';
 
 const pets = [
   {
+    id: 0,
     name: 'Jennifer',
-    // "img": "assets/images/jennifer.png",
     img: jennifer,
     type: 'Dog',
     breed: 'Labrador',
@@ -22,8 +22,8 @@ const pets = [
     parasites: ['none'],
   },
   {
+    id: 1,
     name: 'Sophia',
-    // "img": "assets/images/sophia.png",
     img: sophia,
     type: 'Dog',
     breed: 'Shih tzu',
@@ -35,8 +35,8 @@ const pets = [
     parasites: ['none'],
   },
   {
+    id: 2,
     name: 'Woody',
-    // "img": "assets/images/woody.png",
     img: woody,
     type: 'Dog',
     breed: 'Golden Retriever',
@@ -48,8 +48,8 @@ const pets = [
     parasites: ['none'],
   },
   {
+    id: 3,
     name: 'Scarlett',
-    // "img": "assets/images/scarlett.png",
     img: scarlett,
     type: 'Dog',
     breed: 'Jack Russell Terrier',
@@ -61,8 +61,8 @@ const pets = [
     parasites: ['none'],
   },
   {
+    id: 4,
     name: 'Katrine',
-    // "img": "assets/images/katrine.png",
     img: katrine,
     type: 'Cat',
     breed: 'British Shorthair',
@@ -74,8 +74,8 @@ const pets = [
     parasites: ['none'],
   },
   {
+    id: 5,
     name: 'Timmy',
-    // "img": "assets/images/timmy.png",
     img: timmy,
     type: 'Cat',
     breed: 'British Shorthair',
@@ -87,8 +87,8 @@ const pets = [
     parasites: ['none'],
   },
   {
+    id: 6,
     name: 'Freddie',
-    // "img": "assets/images/freddie.png",
     img: freddie,
     type: 'Cat',
     breed: 'British Shorthair',
@@ -100,8 +100,8 @@ const pets = [
     parasites: ['none'],
   },
   {
+    id: 7,
     name: 'Charly',
-    // "img": "assets/images/charly.png",
     img: charly,
     type: 'Dog',
     breed: 'Jack Russell Terrier',
