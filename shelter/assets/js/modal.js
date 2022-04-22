@@ -30,11 +30,13 @@ const handleCardClick = function () {
 
   insertPetInfo(modalElem, petId);
 
+  document.documentElement.classList.add('no-scroll');
   modalElem.classList.add('visible');
 };
 
 const closeModal = (e, modal) => {
   if (!e.target.closest('.modal__content') || e.target.closest('.modal__close')) {
+    document.documentElement.classList.remove('no-scroll');
     modal.classList.remove('visible');
   }
 };
