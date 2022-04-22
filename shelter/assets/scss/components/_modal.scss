@@ -1,0 +1,130 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+@use "assets/scss/abstracts/mixins" as *;
+@use "assets/scss/abstracts/placeholders";
+
+.modal {
+  @include background-overlay($z-index-modal);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal__dialog {
+  width: 100%;
+  max-height: var(--modal-height) + 50px;
+}
+
+.modal__content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: var(--modal-width);
+  height: var(--modal-height);
+  margin: var(--modal-margin);
+  background-color: $color-light-s;
+  cursor: default;
+
+  @extend %rounded-borders;
+}
+
+.modal__button {
+  position: absolute;
+  top: -$button-round-size;
+  right: -$button-round-size + 10px;
+
+  @media (max-width: $breakpoint-tablet) {
+    right: -22px;
+  }
+}
+
+.modal__photo {
+  @extend %rounded-borders;
+
+  width: auto;
+  height: 100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.modal__info {
+  padding: var(--modal-info-padding);
+  color: $color-darkest;
+  font-family: $font-title;
+  text-align: left;
+}
+
+.modal__title {
+  @extend %section-title;
+
+  margin-bottom: 10px;
+
+  @media (max-width: $breakpoint-tablet) {
+    text-align: center;
+  }
+}
+
+.modal__subtitle {
+  margin-bottom: 40px;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+
+  @media (max-width: $breakpoint-desktop) {
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    text-align: center;
+  }
+}
+
+.modal__description {
+  margin-bottom: 40px;
+  font-size: 15px;
+  line-height: 16.5px;
+  letter-spacing: 0.06em;
+
+  @media (max-width: $breakpoint-desktop) {
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 14px;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    margin-bottom: 24px;
+    text-align: justify;
+  }
+}
+
+.modal__details-list {
+  font-size: 15px;
+  line-height: 16.5px;
+  letter-spacing: 0.06em;
+  list-style: disc;
+}
+
+.modal__detail-title {
+  font-weight: 700;
+}
+
+.modal__detail {
+  margin-bottom: 11px;
+  margin-left: 14px;
+
+  @media (max-width: $breakpoint-desktop) {
+    margin-bottom: 6px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &::marker {
+    color: $color-primary;
+  }
+}

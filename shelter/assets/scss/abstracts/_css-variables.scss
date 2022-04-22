@@ -2,19 +2,31 @@
 
 :root {
   // ********** Sizes **********
-  --carousel-content-width: #{$carousel-content-width};
+  --carousel-content-width: #{$carousel-content-w};
   --carousel-content-gap: #{$carousel-content-gap};
   --carousel-column-gap: #{$carousel-column-gap};
+  --modal-width: #{$modal-w};
+  --modal-height: #{$modal-h};
+  --modal-margin: #{$modal-m};
+  --modal-info-padding: #{$modal-info-p};
 
   @media (max-width: $breakpoint-desktop) {
-    --carousel-content-width: #{$carousel-content-width-tablet};
+    --carousel-content-width: #{$carousel-content-w-tablet};
     --carousel-content-gap: #{$carousel-content-gap-tablet};
     --carousel-column-gap: #{$carousel-column-gap-tablet};
+    --modal-width: #{$modal-w-tablet};
+    --modal-height: #{$modal-h-tablet};
+    --modal-margin: #{$modal-m-tablet};
+    --modal-info-padding: #{$modal-info-p-tablet};
   }
 
   @media (max-width: $breakpoint-tablet) {
-    --carousel-content-width: #{$carousel-content-width-mobile};
+    --carousel-content-width: #{$carousel-content-w-mobile};
     --carousel-content-gap: #{$carousel-content-gap-mobile};
     --carousel-column-gap: #{$carousel-column-gap-mobile};
+    --modal-width: #{$modal-w-mobile};
+    --modal-height: #{$modal-h-mobile};
+    --modal-margin: #{$modal-m-mobile};
+    --modal-info-padding: #{$modal-info-p-mobile};
   }
 }

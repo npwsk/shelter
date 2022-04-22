@@ -1,4 +1,5 @@
 @use "assets/scss/abstracts/scss-variables" as *;
+@use "assets/scss/abstracts/placeholders";
 
 .pet-card {
   display: flex;
@@ -11,6 +12,8 @@
   border-radius: 9px;
   cursor: pointer;
   transition: box-shadow 0.2s ease-in, background-color 0.2s ease-in;
+
+  @extend %rounded-borders;
 
   &:hover {
     background-color: $color-light-xl;

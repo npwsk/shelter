@@ -1,0 +1,19 @@
+@use "assets/scss/abstracts/scss-variables" as *;
+
+%rounded-borders {
+  border-radius: 9px;
+}
+
+%title {
+  font-weight: 400;
+  font-family: $font-title;
+  font-style: normal;
+  line-height: 130%;
+}
+
+%section-title {
+  @extend %title;
+
+  font-size: 35px;
+  letter-spacing: 0.06em;
+}

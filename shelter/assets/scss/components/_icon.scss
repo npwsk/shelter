@@ -36,4 +36,10 @@
     height: 32px;
     background-image: url("assets/icons/map-pin.svg");
   }
+
+  &--close {
+    width: 12px;
+    height: 12px;
+    background-image: url("assets/icons/close.svg");
+  }
 }
