@@ -1,18 +1,21 @@
 import pets from 'assets/pets';
 
-const getRandomIndexes = (count, max, prev = []) => {
-  const indexes = [];
+const PETS_COUNT = pets.length;
+const CARDS_PER_ITEM_DESKTOP = 3;
+const CARDS_PER_ITEM_TABLET = 2;
+const CARDS_PER_ITEM_MOBILE = 1;
 
-  for (let i = 0; i < count; i += 1) {
-    const random = Math.floor(Math.random() * (max + 1));
-    if (prev.includes(random) || indexes.includes(random)) {
-      i -= 1;
-    } else {
-      indexes.push(random);
+const getRandomIds = (count, max, prev = []) => {
+  const ids = [];
+
+  while (ids.length < count) {
+    const randomId = Math.floor(Math.random() * (max + 1));
+    if (!prev.includes(randomId) & !ids.includes(randomId)) {
+      ids.push(randomId);
     }
   }
 
-  return indexes;
+  return ids;
 };
 
 const createCard = ({ img, name }) => {
@@ -48,30 +51,24 @@ const renderCards = (item, ids) => {
   });
 };
 
-const renderItem = (indexes, parent, id) => {
+const renderItem = (petsIds, parent, elemId) => {
   const item = document.createElement('div');
   item.classList.add('carousel__item');
-  item.id = id;
+  item.id = elemId;
 
-  renderCards(item, indexes);
+  renderCards(item, petsIds);
 
   parent.append(item);
 
   return item;
 };
 
-const renderCarousel = (carouselContent, cardsCount) => {
-  let currentPets = getRandomIndexes(cardsCount, 7);
-  let nextPets = getRandomIndexes(cardsCount, 7, currentPets);
-  let prevPets = getRandomIndexes(cardsCount, 7, currentPets);
-
-  // let itemsIndexes = [prevPets, currentPets, nextPets];
-  // console.log(itemsIndexes);
+const renderCarousel = (carouselContent, currentIds, nextIds) => {
   carouselContent.innerHTML = '';
 
-  const prevItem = renderItem(prevPets, carouselContent, 'carousel-item-prev');
-  const currentItem = renderItem(currentPets, carouselContent, 'carousel-item-current');
-  const nextItem = renderItem(nextPets, carouselContent, 'carousel-item-next');
+  renderItem(nextIds, carouselContent, 'carousel-item-prev');
+  renderItem(currentIds, carouselContent, 'carousel-item-current');
+  renderItem(nextIds, carouselContent, 'carousel-item-next');
 };
 
 const initCarousel = () => {
@@ -86,26 +83,36 @@ const initCarousel = () => {
   const tabletQuery = window.matchMedia('(max-width: 1279px) and (min-width: 768px)');
   const mobileQuery = window.matchMedia('(max-width: 767px)');
 
-  let itemCardsCount = 3;
+  let itemCardsCount;
+  let currentIds;
+  let nextIds;
+
+  const generateNewIds = () => {
+    currentIds = getRandomIds(itemCardsCount, PETS_COUNT - 1);
+    nextIds = getRandomIds(itemCardsCount, PETS_COUNT - 1, currentIds);
+  };
 
   const handleDesktopQueryChange = (e) => {
     if (e.matches) {
-      itemCardsCount = 3;
-      renderCarousel(carouselContent, itemCardsCount);
+      itemCardsCount = CARDS_PER_ITEM_DESKTOP;
+      generateNewIds();
+      renderCarousel(carouselContent, currentIds, nextIds);
     }
   };
 
   const handleTabletQueryChange = (e) => {
     if (e.matches) {
-      itemCardsCount = 2;
-      renderCarousel(carouselContent, itemCardsCount);
+      itemCardsCount = CARDS_PER_ITEM_TABLET;
+      generateNewIds();
+      renderCarousel(carouselContent, currentIds, nextIds);
     }
   };
 
   const handleMobileQueryChange = (e) => {
     if (e.matches) {
-      itemCardsCount = 1;
-      renderCarousel(carouselContent, itemCardsCount);
+      itemCardsCount = CARDS_PER_ITEM_MOBILE;
+      generateNewIds();
+      renderCarousel(carouselContent, currentIds, nextIds);
     }
   };
 
@@ -137,34 +144,16 @@ const initCarousel = () => {
     const currentItem = document.querySelector('#carousel-item-current');
     const nextItem = document.querySelector('#carousel-item-next');
 
-    let changedItem;
-
-    if (e.animationName === 'move-left') {
-      changedItem = nextItem;
-      // itemsIndexes.shift();
-      // itemsIndexes.push('-');
-    }
-    if (e.animationName === 'move-right') {
-      changedItem = prevItem;
-      // itemsIndexes.unshift('-');
-      // itemsIndexes.pop();
-    }
-    // console.log(itemsIndexes);
-
     carouselContent.classList.remove('transition-left', 'transition-right');
-    currentItem.innerHTML = changedItem.innerHTML;
-    changedItem.innerHTML = '';
+    currentItem.innerHTML = prevItem.innerHTML;
+    prevItem.innerHTML = '';
+    nextItem.innerHTML = '';
 
-    const newIndexes = getRandomIndexes(itemCardsCount, 7);
+    currentIds = nextIds;
+    nextIds = getRandomIds(itemCardsCount, PETS_COUNT - 1, currentIds);
 
-    // itemsIndexes.forEach((itemIndexes, i) => {
-    //   if (itemIndexes === '-') {
-    //     itemsIndexes[i] = newIndexes;
-    //   }
-    // });
-    // console.log(itemsIndexes);
-
-    renderCards(changedItem, newIndexes);
+    renderCards(prevItem, nextIds);
+    renderCards(nextItem, nextIds);
 
     btnNext.addEventListener('click', moveRight);
     btnPrev.addEventListener('click', moveLeft);
