@@ -1,7 +1,6 @@
-import pets from 'assets/pets';
-import { createCard } from './petCard';
+import { renderCards } from './petCard';
 
-const PETS_COUNT = pets.length;
+const PETS_COUNT = 8;
 const CARDS_PER_ITEM_DESKTOP = 3;
 const CARDS_PER_ITEM_TABLET = 2;
 const CARDS_PER_ITEM_MOBILE = 1;
@@ -17,13 +16,6 @@ const getRandomIds = (count, max, prev = []) => {
   }
 
   return ids;
-};
-
-const renderCards = (item, ids) => {
-  ids.forEach((id) => {
-    const card = createCard(pets[id]);
-    item.append(card);
-  });
 };
 
 const renderItem = (petsIds, parent, elemId) => {

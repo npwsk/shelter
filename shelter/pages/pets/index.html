@@ -165,15 +165,43 @@
                 <button class="pet-card__button button button--outlined">Learn more</button>
               </div>
             </div>
-            <div class="pets__pagination pagination">
-              <button class="button button--round button--outlined button--disabled">
-                &lt;&lt;
-              </button>
-              <button class="button button--round button--outlined button--disabled">&lt;</button>
-              <button class="button button--round button--active">1</button>
-              <button class="button button--round button--outlined">&gt;</button>
-              <button class="button button--round button--outlined">&gt;&gt;</button>
-            </div>
+            <nav aria-label="pets__pagination">
+              <ul class="pagination">
+                <li>
+                  <a
+                    href=""
+                    class="button button--round button--outlined button--disabled"
+                    data-page-control="first"
+                  >
+                    &lt;&lt;
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href=""
+                    class="button button--round button--outlined button--disabled"
+                    data-page-control="prev"
+                  >
+                    &lt;
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="button button--round button--active" data-page-control="current"
+                    >1</a
+                  >
+                </li>
+                <li>
+                  <a href="" class="button button--round button--outlined" data-page-control="next"
+                    >&gt;</a
+                  >
+                </li>
+                <li>
+                  <a href="" class="button button--round button--outlined" data-page-control="last"
+                    >&gt;&gt;</a
+                  >
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </section>

@@ -1,3 +1,4 @@
+import pets from 'assets/pets';
 import { handleCardClick } from './modal';
 
 const createCard = ({ img, name, id }) => {
@@ -29,4 +30,11 @@ const createCard = ({ img, name, id }) => {
   return card;
 };
 
-export { createCard };
+const renderCards = (container, ids) => {
+  ids.forEach((id) => {
+    const card = createCard(pets[id]);
+    container.append(card);
+  });
+};
+
+export { createCard, renderCards };

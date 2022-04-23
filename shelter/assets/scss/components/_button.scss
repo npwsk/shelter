@@ -62,11 +62,16 @@
     background-color: transparent;
     border-color: $color-dark-s;
     cursor: default;
+    pointer-events: none;
   }
 
-  &--active:hover {
-    background-color: $color-primary;
-    border-color: $color-primary;
+  &--active {
     cursor: default;
+    pointer-events: none;
+
+    &:hover {
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
   }
 }
