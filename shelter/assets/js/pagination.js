@@ -2,19 +2,12 @@ import uniquePets from 'assets/pets';
 import { renderCards } from './petCard';
 import { getRandomIds } from './utils';
 
+const UNIQUE_PETS_COUNT = 8;
+const TARGET_CARDS_COUNT = 48;
 const MIN_PAGES_COUNT = 6;
-const CARDS_PER_PAGE = 8;
+const CARDS_PER_PAGE_DESKTOP = 8;
 const CARDS_PER_PAGE_TABLET = 6;
 const CARDS_PER_PAGE_MOBILE = 3;
-
-const shuffle = (items = []) => {
-  const permutation = [...items];
-  for (let i = items.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [permutation[i], permutation[j]] = [permutation[j], permutation[i]];
-  }
-  return permutation;
-};
 
 const generatePetsIdsList = (uniqueCount, repeatsCount) => {
   const ids = [];
@@ -52,15 +45,13 @@ const checkForSubarrRepeats = (arr, subarrLength) => {
 const getPetsForPage = (pets, page, petsPerPage) => {
   const first = (page - 1) * petsPerPage;
   const last = first + petsPerPage - 1;
-  console.log(first, last);
   return pets.slice(first, last + 1);
 };
 
-const renderPage = (container, allIds, pageNumber) => {
+const renderPage = (container, allIds, pageNumber, cardsPerPage) => {
   container.innerHTML = '';
   container.setAttribute('data-page', pageNumber);
-  const idsForPage = getPetsForPage(allIds, pageNumber, CARDS_PER_PAGE);
-  console.log(idsForPage);
+  const idsForPage = getPetsForPage(allIds, pageNumber, cardsPerPage);
   renderCards(container, idsForPage);
 };
 
@@ -101,29 +92,11 @@ const getNewPageNumber = (button, currentPage, lastPage) => {
   }
 };
 
-const handleButtons = (e, petsIds, buttons, container) => {
-  e.preventDefault();
-
-  const button = e.target.closest('[data-page-control]');
-  if (
-    !button ||
-    button.classList.contains('button--disabled') ||
-    button.classList.contains('button--active')
-  ) {
-    return;
-  }
-
-  const currentPage = Number(container.dataset.page);
-  // fix last page
-  const lastPage = MIN_PAGES_COUNT;
-  const newPage = getNewPageNumber(button, currentPage, lastPage);
-
-  renderPage(container, petsIds, newPage);
-  updateButtons(buttons, newPage, lastPage);
-};
-
 const initPagination = () => {
-  const petsIdsList = generatePetsIdsList(8, MIN_PAGES_COUNT);
+  const petsIdsList = generatePetsIdsList(
+    UNIQUE_PETS_COUNT,
+    Math.round(TARGET_CARDS_COUNT / UNIQUE_PETS_COUNT)
+  );
 
   /* Write to console for self-check */
   console.group(`Pets' ids array:`);
@@ -143,10 +116,63 @@ const initPagination = () => {
     current: btnsContainer.querySelector('[data-page-control="current"]'),
   };
 
-  cardsContainer.innerHTML = '';
-  cardsContainer.setAttribute('data-page', 1);
-  const idsForPage = getPetsForPage(petsIdsList, 1, CARDS_PER_PAGE);
-  renderCards(cardsContainer, idsForPage);
+  let cardsPerPage;
+
+  const desktopQuery = window.matchMedia('(min-width: 1280px)');
+  const tabletQuery = window.matchMedia('(max-width: 1279px) and (min-width: 768px)');
+  const mobileQuery = window.matchMedia('(max-width: 767px)');
+
+  const handleDesktopQueryChange = (e) => {
+    if (e.matches) {
+      cardsPerPage = CARDS_PER_PAGE_DESKTOP;
+      const page = Number(cardsContainer.dataset.page) || 1;
+      renderPage(cardsContainer, petsIdsList, page, cardsPerPage);
+    }
+  };
+
+  const handleTabletQueryChange = (e) => {
+    if (e.matches) {
+      cardsPerPage = CARDS_PER_PAGE_TABLET;
+      const page = Number(cardsContainer.dataset.page) || 1;
+      renderPage(cardsContainer, petsIdsList, page, cardsPerPage);
+    }
+  };
+
+  const handleMobileQueryChange = (e) => {
+    if (e.matches) {
+      cardsPerPage = CARDS_PER_PAGE_MOBILE;
+      const page = Number(cardsContainer.dataset.page) || 1;
+      renderPage(cardsContainer, petsIdsList, page, cardsPerPage);
+    }
+  };
+
+  desktopQuery.addEventListener('change', handleDesktopQueryChange);
+  tabletQuery.addEventListener('change', handleTabletQueryChange);
+  mobileQuery.addEventListener('change', handleMobileQueryChange);
+
+  handleDesktopQueryChange(desktopQuery);
+  handleTabletQueryChange(tabletQuery);
+  handleMobileQueryChange(mobileQuery);
+
+  const handleButtons = (e, petsIds, buttons, container) => {
+    e.preventDefault();
+
+    const button = e.target.closest('[data-page-control]');
+    if (
+      !button ||
+      button.classList.contains('button--disabled') ||
+      button.classList.contains('button--active')
+    ) {
+      return;
+    }
+
+    const currentPage = Number(container.dataset.page);
+    const lastPage = Math.ceil(TARGET_CARDS_COUNT / cardsPerPage);
+    const newPage = getNewPageNumber(button, currentPage, lastPage);
+
+    renderPage(container, petsIds, newPage, cardsPerPage);
+    updateButtons(buttons, newPage, lastPage);
+  };
 
   btnsContainer.addEventListener('click', (e) =>
     handleButtons(e, petsIdsList, buttons, cardsContainer)
