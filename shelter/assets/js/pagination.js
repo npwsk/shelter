@@ -64,14 +64,62 @@ const renderPage = (container, allIds, pageNumber) => {
   renderCards(container, idsForPage);
 };
 
-const handleBtnFirst = (e, container, petsIds) => {
-  // const currnetPage = document.querySelector('[data-page]').dataset.page
+const updateButtons = (buttons, page, lastPage) => {
+  const { current, prev, next, first, last } = buttons;
+
+  current.textContent = page;
+
+  if (page > 1) {
+    first.classList.remove('button--disabled');
+    prev.classList.remove('button--disabled');
+  } else {
+    first.classList.add('button--disabled');
+    prev.classList.add('button--disabled');
+  }
+
+  if (page < lastPage) {
+    last.classList.remove('button--disabled');
+    next.classList.remove('button--disabled');
+  } else {
+    last.classList.add('button--disabled');
+    next.classList.add('button--disabled');
+  }
 };
 
-const handleBtnNext = (e, container, petsIds) => {
+const getNewPageNumber = (button, currentPage, lastPage) => {
+  switch (button.dataset.pageControl) {
+    case 'first':
+      return 1;
+    case 'last':
+      return lastPage;
+    case 'prev':
+      return currentPage - 1;
+    case 'next':
+      return currentPage + 1;
+    default:
+      return currentPage;
+  }
+};
+
+const handleButtons = (e, petsIds, buttons, container) => {
   e.preventDefault();
-  const currentPage = Number(document.querySelector('[data-page]').dataset.page);
-  renderPage(container, petsIds, currentPage + 1);
+
+  const button = e.target.closest('[data-page-control]');
+  if (
+    !button ||
+    button.classList.contains('button--disabled') ||
+    button.classList.contains('button--active')
+  ) {
+    return;
+  }
+
+  const currentPage = Number(container.dataset.page);
+  // fix last page
+  const lastPage = MIN_PAGES_COUNT;
+  const newPage = getNewPageNumber(button, currentPage, lastPage);
+
+  renderPage(container, petsIds, newPage);
+  updateButtons(buttons, newPage, lastPage);
 };
 
 const initPagination = () => {
@@ -87,18 +135,22 @@ const initPagination = () => {
 
   const cardsContainer = document.querySelector('.pets__cards-page');
   const btnsContainer = document.querySelector('.pagination');
-  const btnFirst = btnsContainer.querySelector('[data-page-control="first"]');
-  const btnLast = btnsContainer.querySelector('[data-page-control="last"]');
-  const btnPrev = btnsContainer.querySelector('[data-page-control="prev"]');
-  const btnNext = btnsContainer.querySelector('[data-page-control="next"]');
-  const btnCurrent = btnsContainer.querySelector('[data-page-control="current"]');
+  const buttons = {
+    first: btnsContainer.querySelector('[data-page-control="first"]'),
+    last: btnsContainer.querySelector('[data-page-control="last"]'),
+    prev: btnsContainer.querySelector('[data-page-control="prev"]'),
+    next: btnsContainer.querySelector('[data-page-control="next"]'),
+    current: btnsContainer.querySelector('[data-page-control="current"]'),
+  };
 
   cardsContainer.innerHTML = '';
   cardsContainer.setAttribute('data-page', 1);
   const idsForPage = getPetsForPage(petsIdsList, 1, CARDS_PER_PAGE);
   renderCards(cardsContainer, idsForPage);
 
-  btnNext.addEventListener('click', (e) => handleBtnNext(e, cardsContainer, petsIdsList));
+  btnsContainer.addEventListener('click', (e) =>
+    handleButtons(e, petsIdsList, buttons, cardsContainer)
+  );
 };
 
 export { initPagination };
