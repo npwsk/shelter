@@ -1,22 +1,10 @@
 import { renderCards } from './petCard';
+import { getRandomIds } from './utils';
 
 const PETS_COUNT = 8;
 const CARDS_PER_ITEM_DESKTOP = 3;
 const CARDS_PER_ITEM_TABLET = 2;
 const CARDS_PER_ITEM_MOBILE = 1;
-
-const getRandomIds = (count, max, prev = []) => {
-  const ids = [];
-
-  while (ids.length < count) {
-    const randomId = Math.floor(Math.random() * (max + 1));
-    if (!prev.includes(randomId) & !ids.includes(randomId)) {
-      ids.push(randomId);
-    }
-  }
-
-  return ids;
-};
 
 const renderItem = (petsIds, parent, elemId) => {
   const item = document.createElement('div');
@@ -56,7 +44,7 @@ const initCarousel = () => {
 
   const generateNewIds = () => {
     currentIds = getRandomIds(itemCardsCount, PETS_COUNT - 1);
-    nextIds = getRandomIds(itemCardsCount, PETS_COUNT - 1, currentIds);
+    nextIds = getRandomIds(itemCardsCount, PETS_COUNT - 1, { idsToExclude: currentIds });
   };
 
   const handleDesktopQueryChange = (e) => {
@@ -118,7 +106,7 @@ const initCarousel = () => {
     nextItem.innerHTML = '';
 
     currentIds = nextIds;
-    nextIds = getRandomIds(itemCardsCount, PETS_COUNT - 1, currentIds);
+    nextIds = getRandomIds(itemCardsCount, PETS_COUNT - 1, { idsToExclude: currentIds });
 
     renderCards(prevItem, nextIds);
     renderCards(nextItem, nextIds);
