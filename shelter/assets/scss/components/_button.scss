@@ -51,6 +51,12 @@
     }
   }
 
+  &:hover,
+  &--hovered {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+  }
+
   &--disabled,
   &--disabled:hover {
     color: $color-dark-s;
@@ -70,11 +76,5 @@
       background-color: $color-primary;
       border-color: $color-primary;
     }
-  }
-
-  &:hover,
-  &--hovered {
-    background-color: $color-primary-light;
-    border-color: $color-primary-light;
   }
 }
