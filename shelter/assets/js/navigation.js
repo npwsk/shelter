@@ -35,6 +35,16 @@ const initNav = () => {
   burgerButton.addEventListener('click', () => toggleNav(nav, navOverlay, burgerButton));
   nav.addEventListener('click', (e) => handleNav(e, nav, navOverlay, burgerButton));
   navOverlay.addEventListener('click', () => handleNavOverLay(nav, navOverlay, burgerButton));
+
+  const notMobileQuery = window.matchMedia('(min-width: 768px)');
+
+  const handleMediaQueryChange = (e) => {
+    if (e.matches) {
+      closeNav(nav, navOverlay, burgerButton);
+    }
+  };
+
+  notMobileQuery.addEventListener('change', handleMediaQueryChange);
 };
 
 export { initNav };
