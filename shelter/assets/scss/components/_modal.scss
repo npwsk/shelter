@@ -28,6 +28,7 @@
   justify-content: space-between;
   width: var(--modal-width);
   height: var(--modal-height);
+  max-height: calc(100vh - 2 * $button-round-size - 2 * 20px);
   margin: var(--modal-margin);
   background-color: $color-light-s;
   cursor: default;
@@ -62,6 +63,7 @@
 
 .modal__info {
   padding: var(--modal-info-padding);
+  overflow-y: auto;
   color: $color-darkest;
   font-family: $font-title;
   text-align: left;
