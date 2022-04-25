@@ -44,6 +44,11 @@
   @media (max-width: $breakpoint-tablet) {
     right: -22px;
   }
+
+  .modal:hover > .modal__content:not(:hover) & {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+  }
 }
 
 .modal__photo {

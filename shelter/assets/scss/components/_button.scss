@@ -19,11 +19,6 @@
   cursor: pointer;
   transition: background-color 0.2s ease-in, border 0.2s ease-in;
 
-  &:hover {
-    background-color: $color-primary-light;
-    border-color: $color-primary-light;
-  }
-
   &--outlined {
     background-color: transparent;
   }
@@ -75,5 +70,11 @@
       background-color: $color-primary;
       border-color: $color-primary;
     }
+  }
+
+  &:hover,
+  &--hovered {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
   }
 }

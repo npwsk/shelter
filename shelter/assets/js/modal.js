@@ -60,9 +60,21 @@ const closeModal = (e, modal) => {
 
 const initModal = () => {
   const modalElem = document.querySelector('.modal');
-  const closeBtn = modalElem.querySelector('.modal__button');
+  const closeBtn = modalElem.querySelector('.modal__close');
 
   modalElem.addEventListener('click', (e) => closeModal(e, modalElem));
+
+  modalElem.addEventListener('mouseover', (e) => {
+    if (e.target.closest('.modal__content')) {
+      closeBtn.classList.remove('button--hovered');
+      return;
+    }
+    closeBtn.classList.add('button--hovered');
+  });
+
+  modalElem.addEventListener('mouseout', () => {
+    closeBtn.classList.remove('button--hovered');
+  });
 };
 
 export { handleCardClick, initModal };
