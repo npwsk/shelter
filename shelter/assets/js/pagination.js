@@ -29,7 +29,7 @@ const checkForSubarrRepeats = (arr, subarrLength) => {
   while (i < arr.length / subarrLength) {
     const subarr = arr.slice(subarrLength * i, subarrLength * (i + 1));
     if (new Set(subarr).size < subarrLength) {
-      console.group(`Found repeats checking ${subarrLength}-subarrays`);
+      console.group(`Found repeats checking subarrays with size ${subarrLength}`);
       console.warn(
         `Repeat: ${subarr}, from: ${subarrLength * i}, to: ${subarrLength * (i + 1) - 1}`
       );
@@ -38,7 +38,7 @@ const checkForSubarrRepeats = (arr, subarrLength) => {
     }
     i += 1;
   }
-  console.info(`No repeats found checking ${subarrLength}-subarrays`);
+  console.info(`No repeats found in subarrays with size ${subarrLength}`);
   return false;
 };
 
